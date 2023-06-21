@@ -24,8 +24,8 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ (@$setting_data->favicon) ? asset('/images/settings/'.@$setting_data->favicon):asset('assets/backend/images/canosoft-favicon.png') }}">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('asset/frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('asset/frontend/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/responsive.css') }}">
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -54,12 +54,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 header-top-left-part">
-                        <a href="tel:{{@$setting_data->phone ?? $setting_data->mobile ?? ''}}" class="address"><i class="webexflaticon flaticon-phone"></i>
+                        <span href="tel:{{@$setting_data->phone ?? $setting_data->mobile ?? ''}}" class="address"><i class="webexflaticon flaticon-phone"></i>
                             {{@$setting_data->phone ?? $setting_data->mobile  ?? ''}}
-                        </a>
-                        <a href="mailto:{{@$setting_data->email ?? ''}}" class="phone"><i class="webexflaticon flaticon-send"></i>
+                        </span>
+                        <span href="mailto:{{@$setting_data->email ?? ''}}" class="phone">
+                            <i class="webexflaticon flaticon-send"></i>
                             {{@$setting_data->email ?? ''}}
-                        </a>
+                        </span>
                     </div>
                     <div class="col-lg-6 header-top-right-part text-right">
                         <ul class="social-links">
@@ -104,7 +105,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+                        <a class="navbar-brand logo f-left mrt-md-0" href="index.html">
                             <img id="logo-image" class="img-center lazy" data-src="{{$setting_data->logo ? asset('/images/settings/'.@$setting_data->logo):''}}" alt="">
                         </a>
                         <div class="mobile-menu-right"></div>

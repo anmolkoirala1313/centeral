@@ -59,24 +59,17 @@
                         <div class="card-body">
                             <div class="form-group mb-3">
                                 <label>Heading <span class="text-muted text-danger">*</span></label>
-                                <input type="text" maxlength="30" class="form-control" name="heading" required>
+                                <input type="text" maxlength="60" class="form-control" name="heading" required>
                                 <div class="invalid-feedback">
                                     Please enter the slider heading.
                                 </div>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label>Sub Heading </label>
-                                <input type="text" maxlength="30" class="form-control" name="subheading">
+                                <label>Small description </label>
+                                <input type="text" maxlength="80" class="form-control" name="subheading">
                                 <div class="invalid-feedback">
                                     Please enter the slider subheading.
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Small description </label>
-                                <input type="text" maxlength="100" class="form-control" name="caption1">
-                                <div class="invalid-feedback">
-                                    Please enter the small summary.
                                 </div>
                             </div>
                         </div>
@@ -251,23 +244,16 @@
 
                             <div class="form-group mb-3">
                                 <label>Heading </label>
-                                <input type="text" maxlength="30" class="form-control" name="heading" id="heading" required>
+                                <input type="text" maxlength="60" class="form-control" name="heading" id="heading" required>
                                 <div class="invalid-feedback">
                                     Please enter the slider heading.
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label>Sub Heading </label>
-                                <input type="text" maxlength="30" class="form-control" name="subheading" id="subheading">
+                                <label>Small description </label>
+                                <input type="text" maxlength="85" class="form-control" name="subheading" id="subheading">
                                 <div class="invalid-feedback">
                                     Please enter the slider subheading.
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Small summary </label>
-                                <input type="text" maxlength="100" class="form-control" name="caption1" id="caption1">
-                                <div class="invalid-feedback">
-                                    Please enter the small summary.
                                 </div>
                             </div>
                             <div class="form-group mb-3">

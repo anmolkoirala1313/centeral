@@ -91,7 +91,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+                        <a class="navbar-brand logo f-left mrt-md-0" href="index.html">
                             <img id="logo-image" class="img-center lazy" data-src="{{$setting_data->logo ? asset('/images/settings/'.@$setting_data->logo):''}}" alt="">
                         </a>
                         <div class="mobile-menu-right"></div>

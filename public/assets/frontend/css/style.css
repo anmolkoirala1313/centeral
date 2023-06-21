@@ -1274,7 +1274,7 @@ section.anim-object {
 }
 
 .logo img {
-  height: 52px;
+  height: 75px;
 }
 
 /*Header Style One*/
@@ -1863,7 +1863,7 @@ section.anim-object {
   top: 7px;
   height: 60%;
   width: 1px;
-  background: #fff;
+  background: #fff0;
 }
 .header-top-area .header-top-right-part .social-links li {
   display: inline-block;
@@ -2433,7 +2433,7 @@ select {
   font-size: 56px;
   line-height: 62px;
   font-weight: 900;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   opacity: 0;
   -webkit-transform: translateY(100px);
   -moz-transform: translateY(100px);
@@ -2465,7 +2465,7 @@ select {
   position: relative;
   display: block;
   color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-size: 20px;
   line-height: 36px;
   opacity: 0;
@@ -4106,7 +4106,7 @@ select {
 
 .call-us-now:before {
   position: inherit;
-  content: "\f18e";
+  content: "";
   font-family: "Flaticon";
   color: #fff;
   font-size: 92px;
@@ -5533,6 +5533,10 @@ select {
 .border-top-bottom {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+.h-90{
+    height: 90%!important;
 }
 
 /*# sourceMappingURL=style.css.map */
