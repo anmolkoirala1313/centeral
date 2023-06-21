@@ -302,158 +302,139 @@
 
 @if(@$recruitments[0]->heading)
     <section class="feature-section pdt-50 pdb-130 bg-silver-light bg-no-repeat" style="background: #fff">
-    <div class="container">
+        <div class="container">
 
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-lg-8">
-                <div class="title-box-center text-center">
-                    <h5 class="sub-title-center text-primary-color line-top-center mrb-30">Working Process</h5>
-                    <h2 class="title">How we work for our valued customers</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-lg-8">
+                    <div class="title-box-center text-center">
+                        <h5 class="sub-title-center text-primary-color line-top-center mrb-30">Working Process</h5>
+                        <h2 class="title">How we work for our valued customers</h2>
+                    </div>
                 </div>
+                <div class="col"></div>
             </div>
-            <div class="col"></div>
-        </div>
 
-        <div class="row">
-            @foreach(@$recruitments as $index=>$recruitment)
-                <div class="col-md-4 col-xl-3 mt-4">
-                    <div class="feature-box mrb-lg-60">
+            <div class="row">
+                @foreach(@$recruitments as $index=>$recruitment)
+                    <div class="col-md-4 col-xl-3 mt-4">
+                        <div class="feature-box mrb-lg-60">
 
-                        <div class="feature-content" style="background: #F7F8FC;">
-                            <div class="title">
-                                <h4>{{@$recruitment->title}}</h4>
-                            </div>
-                            <div class="para">
-                                <p> {{ $recruitment->icon_description ?? '' }}</p>
-                            </div>
-                            <div class="link">
-                                <a> {{ $index+1 }}</a>
+                            <div class="feature-content" style="background: #F7F8FC;">
+                                <div class="title">
+                                    <h4>{{@$recruitment->title}}</h4>
+                                </div>
+                                <div class="para">
+                                    <p> {{ $recruitment->icon_description ?? '' }}</p>
+                                </div>
+                                <div class="link">
+                                    <a> {{ $index+1 }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 @endif
 
-<section class="pdt-110 pdb-60" data-background="images/bg/3.jpg" data-overlay-dark="8">
+@if(count($latestJobs) > 1)
+    <section class="feature-section pdt-110 pdb-130 bg-silver-light bg-no-repeat" data-background="images/bg/abs-bg5.png" style="background-image: url(&quot;images/bg/abs-bg5.png&quot;);">
+        <div class="container">
+            <div class="section-title mrb-30 mrb-md-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-xl-6">
+                            <h5 class="mrb-15 text-primary-color sub-title-side-line">Recent Jobs</h5>
+                            <h2 class="mrb-30">Our Job availability for you</h2>
+                        </div>
+                        <div class="col-lg-4 col-xl-6 align-self-center text-left text-lg-right">
+                            <a href="{{ route('job.list') }}" class="cs-btn-one btn-gradient-color btn-md">All Jobs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($latestJobs as $index=>$job)
+                    <div class="col-md-6 col-xl-4">
+                        <div class="feature-box mrb-lg-60">
+                            <div class="feature-thumb">
+                                <img class="img-full lazy" data-src="{{ ($job->image !== null) ? asset('/images/job/thumb/thumb_'.@$job->image): asset('assets/frontend/images/central.png')}}" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <div class="title">
+                                    <h4>
+                                        <a href="{{route('job.single',@$job->slug)}}">{{ucfirst($job->name)}}</a>
+                                    </h4>
+                                </div>
+                                <div class="link">
+                                    <a href="{{route('job.single',@$job->slug)}}">
+                                        @if(@$job->end_date >= $today)
+                                            {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}
+                                        @else
+                                            Expired
+                                        @endif
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+@endif
+
+@if(!empty($homepage_info->why_heading))
+    <section class="pdt-110 pdb-60" data-background="{{ asset('assets/frontend/images/bg/3.jpg') }}" data-overlay-dark="8">
     <div class="section-content">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-12 col-xl-6">
                     <div class="about-image-block-3 mrr-30 mrb-lg-60">
-                        <img class="img-full" src="images/about/ab4.jpg" alt="">
+                        <img class="img-full lazy" data-src="{{asset('/images/home/welcome/'.@$homepage_info->what_image5)}}" alt="">
                     </div>
                 </div>
                 <div class="col-md-12 col-xl-6">
                     <h5 class="mrb-15 text-white sub-title-side-line">Why Choose Us?</h5>
-                    <h2 class="text-white mrb-30">We Help You to Grow <br><span class="f-weight-400">Your Business</span> Quickly</h2>
-                    <p class="text-white mrb-60">Distinctively exploit optimal alignments for intuitive. Quickly coordinate business applications through revolutionary cataly technologies rather than development optimal alignments for intuitive.</p>
-                    <div class="video-popup-left mrb-lg-60">
-                        <a class="popup-youtube-left" href="https://www.youtube.com/watch?v=Fvae8nxzVz4"><i class="fas fa-play"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Divider Section End -->
-<!-- About Section Start -->
-<section class="about-section pdt-165 pdt-lg-100 pdb-100 pdb-sm-50">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-12 col-xl-6">
-                <h5 class="mrb-15 text-primary-color sub-title-side-line">Professional Skills</h5>
-                <h2 class="mrb-30">We Help You to Grow <br><span class="f-weight-400">Your Business</span> Quickly</h2>
-                <p class="mrb-30">Distinctively exploit optimal alignments for intuitive. Quickly coordinate business applications through revolutionary cataly technologies rather than development optimal alignments for intuitive.</p>
-                <div class="skills mrb-lg-60">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">Business Consulting</h6>
-                            <div class="skill-percentage">
-                                <div class="count-box"><span class="count-text" data-speed="2100" data-stop="85">0</span>%</div>
+                    <h2 class="text-white mrb-10">We Help You to Grow <br><span class="f-weight-400">Your Business</span> Quickly</h2>
+                    <p class="text-white mrb-10"> {{ucwords(@$homepage_info->why_description)}}</p>
+                    <div class="row">
+                        <div class="col-md-6 col-md-4">
+                            <div class="funfact mrb-lg-30 mrb-20">
+                                <div class="icon">
+                                    <span class="webexflaticon flaticon-medal-1"></span>
+                                </div>
+                                <h2 class="counter">{{@$homepage_info->project_completed ?? '450'}}</h2>
+                                <h5 class="title">Project completed</h5>
                             </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-width="85"></div>
+                        <div class="col-md-6 col-md-4">
+                            <div class="funfact mrb-lg-30 mrb-20">
+                                <div class="icon">
+                                    <span class="webexflaticon flaticon-man-2"></span>
+                                </div>
+                                <h2 class="counter">{{@$homepage_info->happy_clients ?? '660'}}</h2>
+                                <h5 class="title">Happy Clients</h5>
                             </div>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">Market Analysis</h6>
-                            <div class="skill-percentage">
-                                <div class="count-box"><span class="count-text" data-speed="2000" data-stop="96">0</span>%</div>
+                        <div class="col-md-6 col-md-4">
+                            <div class="funfact mrb-lg-30 mrb-20">
+                                <div class="icon">
+                                    <span class="webexflaticon flaticon-rocket"></span>
+                                </div>
+                                <h2 class="counter">{{@$homepage_info->visa_approved ?? '340'}}</h2>
+                                <h5 class="title">Visa Approved</h5>
                             </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-width="96"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">Money Management</h6>
-                            <div class="skill-percentage">
-                                <div class="count-box"><span class="count-text" data-speed="1900" data-stop="90">0</span>%</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-width="90"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">Business Growth</h6>
-                            <div class="skill-percentage">
-                                <div class="count-box"><span class="count-text" data-speed="1800" data-stop="88">0</span>%</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-width="88"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-xl-6 wow fadeInLeft mrb-lg-40" data-wow-delay="0ms" data-wow-duration="1000ms">
-                <h5 class="mrb-15 text-primary-color sub-title-side-line">Some Important FAQ's</h5>
-                <h2 class="mrb-20">Common Frequently Asked Questions</h2>
-                <div class="faq-block">
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <div class="accordion-header active">
-                                <h5 class="title">Q: What happens during Freshers' Week?</h5>
-                                <span class="fas fa-arrow-right"></span>
-                            </div>
-                            <div class="accordion-body">
-                                <p>A: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h5 class="title">Q: What is the transfer application process?</h5>
-                                <span class="fas fa-arrow-right"></span>
-                            </div>
-                            <div class="accordion-body">
-                                <p>A: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h5 class="title">Q: Why should I attend community college?</h5>
-                                <span class="fas fa-arrow-right"></span>
-                            </div>
-                            <div class="accordion-body">
-                                <p>A: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+                        <div class="col-md-6 col-md-4">
+                            <div class="funfact mrb-lg-30 mrb-20">
+                                <div class="icon">
+                                    <span class="webexflaticon flaticon-trophy-2"></span>
+                                </div>
+                                <h2 class="counter">{{@$homepage_info->success_stories ?? '987'}}</h2>
+                                <h5 class="title">Success Stories</h5>
                             </div>
                         </div>
                     </div>
@@ -462,200 +443,135 @@
         </div>
     </div>
 </section>
-<!-- About Section End -->
-<!-- News Section Start -->
-<section class="bg-silver-light pdt-105 pdb-80" data-background="images/bg/abs-bg4.png">
-    <div class="section-title mrb-30 mrb-md-60">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-xl-6">
-                    <h5 class="mrb-15 text-primary-color sub-title-side-line">News And Updates</h5>
-                    <h2 class="mrb-30">Let's Checkout our All Latest News</h2>
+@endif
+
+@if(count($clients) > 0)
+    <section class="pdt-60 pdb-90">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-lg-8">
+                        <div class="title-box-center text-center">
+                            <h5 class="sub-title-center text-primary-color line-top-center mrb-30">
+                                Our valuables
+                            </h5>
+                            <h2 class="title">
+                                Showcasing our estemeed clients
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col"></div>
                 </div>
-                <div class="col-lg-4 col-xl-6 align-self-center text-left text-lg-right">
-                    <a href="#" class="cs-btn-one btn-gradient-color btn-md">All News</a>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="owl-carousel client-items">
+                            @foreach($clients as $client)
+                                <div class="client-item">
+                                    <a href="{{ $client->link ?? '#' }}" target="{{ ($client->link !== null) ? '_blank':'' }}">
+                                        <img src="{{asset('/images/clients/'.@$client->image)}}" alt="">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="section-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="news-wrapper mrb-30 mrb-sm-40">
-                        <div class="news-thumb">
-                            <img class="img-full" src="images/news/01.jpg" alt="">
-                            <div class="news-top-meta">
-                                <span class="entry-category">Business</span>
-                            </div>
-                        </div>
-                        <div class="news-details">
-                            <div class="news-description mb-20">
-                                <h4 class="the-title mrb-30"><a href="#">Tech Entrepreneur Credits Paper For Success</a></h4>
-                                <div class="news-bottom-meta">
-                                    <span class="entry-date mrr-20"><i class="far fa-calendar-alt mrr-10 text-primary-color"></i>01 Jan, 2020</span>
-                                    <span class="entry-author"><i class="far fa-user mrr-10 text-primary-color"></i>Admin</span>
+    </section>
+@endif
+
+@if(count($latestPosts) > 0)
+    <section class="bg-silver-light pdt-105 pdb-80" data-background="{{asset('assets/frontend/images/bg/abs-bg4.png')}}">
+        <div class="section-title mrb-30 mrb-md-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-xl-6">
+                        <h5 class="mrb-15 text-primary-color sub-title-side-line">News And Updates</h5>
+                        <h2 class="mrb-30">Let's Checkout our All Latest News</h2>
+                    </div>
+                    <div class="col-lg-4 col-xl-6 align-self-center text-left text-lg-right">
+                        <a href="{{ route('blog.frontend') }}" class="cs-btn-one btn-gradient-color btn-md">All News</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    @foreach(@$latestPosts as $post)
+                        <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="news-wrapper mrb-30 mrb-sm-40">
+                                <div class="news-thumb">
+                                    <img class="img-full lazy" data-src="{{asset('/images/blog/'.@$post->image)}}" alt="">
+                                    <div class="news-top-meta">
+                                        <span class="entry-category">{{ucfirst(@$post->category->name)}} </span>
+                                    </div>
+                                </div>
+                                <div class="news-details">
+                                    <div class="news-description mb-20">
+                                        <h4 class="the-title mrb-30">
+                                            <a href="{{route('blog.single',$post->slug)}}">
+                                                {{ucfirst(@$post->title)}}
+                                            </a>
+                                        </h4>
+                                        <div class="news-bottom-meta">
+                                            <span class="entry-date mrr-20"><i class="far fa-calendar-alt mrr-10 text-primary-color"></i>
+                                                 {{date('d M Y', strtotime($post->created_at))}}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="news-wrapper mrb-30 mrb-sm-40">
-                        <div class="news-thumb">
-                            <img class="img-full" src="images/news/02.jpg" alt="">
-                            <div class="news-top-meta">
-                                <span class="entry-category">Business</span>
-                            </div>
+            </div>
+        </div>
+    </section>
+@endif
+
+@if(count($testimonials) > 0)
+    <section class="request-a-call-back pdt-100 pdt-sm-50 pdb-110 pdb-lg-70" data-background="{{asset('assets/frontend/images/bg/abs-bg7.png')}}">
+        <div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+            <div class="container">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-lg-8">
+                        <div class="title-box-center">
+                            <h5 class="shadow-text">Reviews</h5>
+                            <h5 class="sub-title-center text-primary-color line-top-center mrb-30">Testimonials</h5>
+                            <h2 class="title">Customers Reviews</h2>
                         </div>
-                        <div class="news-details">
-                            <div class="news-description mb-20">
-                                <h4 class="the-title mrb-30"><a href="#">Tech Entrepreneur Credits Paper For Success</a></h4>
-                                <div class="news-bottom-meta">
-                                    <span class="entry-date mrr-20"><i class="far fa-calendar-alt mrr-10 text-primary-color"></i>01 Jan, 2020</span>
-                                    <span class="entry-author"><i class="far fa-user mrr-10 text-primary-color"></i>Admin</span>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="owl-carousel testimonial-items-3col mrb-lg-40  h-100">
+                        @foreach($testimonials as $testimonial)
+                            <div class="testimonial-item h-100">
+                                <span class="quote-icon fas fa-quote-right"></span>
+                                <div class="testimonial-thumb">
+                                    <img src="{{asset('/images/testimonial/'.@$testimonial->image)}}" alt="">
+                                </div>
+                                <h4 class="client-name">{{ucfirst($testimonial->name)}}</h4>
+                                <h6 class="client-designation">{{ucfirst($testimonial->position)}}</h6>
+                                <div class="testimonial-content">
+                                    <p class="comments">{{ucfirst($testimonial->description)}}</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="news-wrapper mrb-30 mrb-sm-40">
-                        <div class="news-thumb">
-                            <img class="img-full" src="images/news/03.jpg" alt="">
-                            <div class="news-top-meta">
-                                <span class="entry-category">Business</span>
-                            </div>
-                        </div>
-                        <div class="news-details">
-                            <div class="news-description mb-20">
-                                <h4 class="the-title mrb-30"><a href="#">Tech Entrepreneur Credits Paper For Success</a></h4>
-                                <div class="news-bottom-meta">
-                                    <span class="entry-date mrr-20"><i class="far fa-calendar-alt mrr-10 text-primary-color"></i>01 Jan, 2020</span>
-                                    <span class="entry-author"><i class="far fa-user mrr-10 text-primary-color"></i>Admin</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- News Section End -->
-<!-- Testimonials Section Start -->
-<section class="request-a-call-back pdt-100 pdt-sm-50 pdb-110 pdb-lg-70" data-background="images/bg/abs-bg7.png">
-    <div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-        <div class="container">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col-lg-8">
-                    <div class="title-box-center">
-                        <h5 class="shadow-text">Reviews</h5>
-                        <h5 class="sub-title-center text-primary-color line-top-center mrb-30">Testimonials</h5>
-                        <h2 class="title">Customers Reviews</h2>
-                    </div>
-                </div>
-                <div class="col"></div>
-            </div>
-        </div>
-    </div>
-    <div class="section-content">
-        <div class="container">
-            <div class="row">
-                <div class="owl-carousel testimonial-items-3col mrb-lg-40">
-                    <div class="testimonial-item">
-                        <span class="quote-icon fas fa-quote-right"></span>
-                        <div class="testimonial-thumb">
-                            <img src="images/testimonials/testimonial-img1.jpg" alt="">
-                        </div>
-                        <h4 class="client-name">Aurther Maxwell</h4>
-                        <h6 class="client-designation">CEO, Apple Inc.</h6>
-                        <div class="testimonial-content">
-                            <p class="comments">Lorem ipsum dolor sit amet, consectetur adipisicing elit oluptatibus blanditiis amet optio fugiat nisi est repellendus iusto quis harum laboriosam nostrum unde distinctio</p>
-                            <ul class="star-rating">
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-half text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-empty text-primary-color"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <span class="quote-icon fas fa-quote-right"></span>
-                        <div class="testimonial-thumb">
-                            <img src="images/testimonials/testimonial-img2.jpg" alt="">
-                        </div>
-                        <h4 class="client-name">Aurther Maxwell</h4>
-                        <h6 class="client-designation">CEO, Apple Inc.</h6>
-                        <div class="testimonial-content">
-                            <p class="comments">Lorem ipsum dolor sit amet, consectetur adipisicing elit oluptatibus blanditiis amet optio fugiat nisi est repellendus iusto quis harum laboriosam nostrum unde distinctio</p>
-                            <ul class="star-rating">
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-half text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-empty text-primary-color"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <span class="quote-icon fas fa-quote-right"></span>
-                        <div class="testimonial-thumb">
-                            <img src="images/testimonials/testimonial-img3.jpg" alt="">
-                        </div>
-                        <h4 class="client-name">Aurther Maxwell</h4>
-                        <h6 class="client-designation">CEO, Apple Inc.</h6>
-                        <div class="testimonial-content">
-                            <p class="comments">Lorem ipsum dolor sit amet, consectetur adipisicing elit oluptatibus blanditiis amet optio fugiat nisi est repellendus iusto quis harum laboriosam nostrum unde distinctio</p>
-                            <ul class="star-rating">
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-full text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-half text-primary-color"></i></li>
-                                <li><i class="webex-icon-star-empty text-primary-color"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonials Section End -->
-<!-- Clients Section Start -->
-<section class="bg-silver-light pdt-60 pdb-60">
-    <div class="section-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="owl-carousel client-items">
-                        <div class="client-item">
-                            <img src="images/clients/client1.png" alt="">
-                        </div>
-                        <div class="client-item">
-                            <img src="images/clients/client2.png" alt="">
-                        </div>
-                        <div class="client-item">
-                            <img src="images/clients/client4.png" alt="">
-                        </div>
-                        <div class="client-item">
-                            <img src="images/clients/client5.png" alt="">
-                        </div>
-                        <div class="client-item">
-                            <img src="images/clients/client1.png" alt="">
-                        </div>
-                        <div class="client-item">
-                            <img src="images/clients/client6.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Clients Section End -->
+    </section>
+@endif
+
 @endsection
 @section('js')
     <script src="{{asset('assets/frontend/js/lightbox.min.js')}}"></script>
