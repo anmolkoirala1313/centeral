@@ -1,38 +1,35 @@
-<div class="widget-area">
-    <div class="search-widget mb-50">
-        <div class="search-wrap">
-            <form method="get" id="searchform" action="{{route('searchJob')}}">
+<aside class="news-sidebar-widget">
+    <div class="widget sidebar-widget widget-search mrb-30">
+        <form method="get" class="search-form" id="searchform" action="{{route('searchJob')}}">
+            <label>
                 <input type="search" id="s"
-                       name="s" placeholder="Search Jobs.."  class="search-input"
-                       oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
-                <button type="submit" value="Search"><i class="flaticon-search"></i></button>
-            </form>
-        </div>
+                       name="s" class="search-field" placeholder="Search Jobs..."   oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
+            </label>
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
     </div>
-
-    <div class="recent-posts">
-        <div class="widget-title">
-            <h3 class="title">Latest Jobs</h3>
-        </div>
-        @foreach($latestJobs as $index => $latest)
-            <div class="recent-post-widget {{ $loop->first ? 'no-border':'' }}">
-                <div class="post-img">
-                    <a href="{{route('job.single',@$latest->slug)}}">
-                        <img class="lazy"  data-src="{{(@$latest->image) ? asset('/images/job/thumb/thumb_'.@$latest->image):  asset('assets/frontend/images/career.png') }}"
-                             alt=""></a>
-                </div>
-                <div class="post-desc">
-                    <a href="{{route('job.single',@$latest->slug)}}">
-                        {{ucwords(@$latest->name)}} </a>
-                    <span class="date-post"> <i class="fa fa-calendar"></i>
-                         @if(@$latest->end_date >= $today)
-                            Expires on - {{date('M j, Y',strtotime(@$latest->end_date))}}
-                        @else
-                            Expired
-                        @endif
-                    </span>
-                </div>
+    <div class="widget sidebar-widget widget-popular-posts">
+        <h4 class="mrb-30 single-blog-widget-title">Latest Jobs</h4>
+        <div class="service-nav-menu mrb-30">
+            <div class="service-link-list mb-30">
+                <ul class="">
+                    @foreach($latestJobs as $index => $latest)
+                        <li>
+                            <a href="{{route('job.single',@$latest->slug)}}">
+                                <i class="fa fa-chevron-right"></i>
+                                {{ucwords(@$latest->name)}}
+                                <br/>
+                                <i class="fa fa-calendar-alt"></i>
+                                @if(@$latest->end_date >= $today)
+                                    Expires on - {{date('M j, Y',strtotime(@$latest->end_date))}}
+                                @else
+                                    Expired
+                                @endif
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-        @endforeach
+        </div>
     </div>
-</div>
+</aside>

@@ -5538,7 +5538,9 @@ select {
 .h-90{
     height: 90%!important;
 }
-
+.custom-description{
+    text-align: justify;
+}
 .custom-description ul, .custom-description ol{
     list-style: outside none none;
     margin: 0;
@@ -5565,6 +5567,17 @@ select {
     font-family: "Font Awesome 5 Free";
 }
 
-
+.job-social-area{
+    margin: 80px 0 30px;
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eeee;
+}
+.job-social-area .social-icons li a{
+    color: #0c59db;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 15px;
+}
 
 /*# sourceMappingURL=style.css.map */
