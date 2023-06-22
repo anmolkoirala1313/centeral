@@ -470,7 +470,7 @@ img {
   clear: both;
 }
 
-.block-quote {
+.block-quote, blockquote {
   padding: 30px;
   background: #F4F5F8;
   border-left: 5px solid #0c59db;
@@ -479,7 +479,7 @@ img {
   margin-bottom: 20px;
 }
 
-.block-quote:after {
+.block-quote:after, blockquote:after {
   position: absolute;
   content: "\ea70";
   font-family: 'webexicon' !important;
@@ -489,7 +489,7 @@ img {
   opacity: 0.08;
 }
 
-.block-quote p {
+.block-quote p, blockquote p {
   font-size: 20px;
   color: #555362;
 }
@@ -5538,5 +5538,33 @@ select {
 .h-90{
     height: 90%!important;
 }
+
+.custom-description ul, .custom-description ol{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.custom-description ul li:first-child, .custom-description ol li:first-child{
+    margin-top: 0;
+}
+
+.custom-description ul li, .custom-description ol li{
+    display: inherit;
+    position: relative;
+    padding-left: 30px;
+    margin: 12px 0px;
+}
+
+.custom-description ul li:before, .custom-description ol li:before{
+    color: #0c59db;
+    font-weight: 500;
+    position: absolute;
+    content: '\f192';
+    left: 0px;
+    top: 0px;
+    font-family: "Font Awesome 5 Free";
+}
+
+
 
 /*# sourceMappingURL=style.css.map */

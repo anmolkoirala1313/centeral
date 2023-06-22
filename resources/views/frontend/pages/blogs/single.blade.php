@@ -18,82 +18,74 @@
 @endsection
 @section('content')
 
-    <!-- Breadcrumbs Start -->
-    <div class="rs-breadcrumbs img4">
+    <section class="page-title-section">
         <div class="container">
-            <div class="breadcrumbs-inner">
-                <h1 class="page-title">{{ @$singleBlog->title }}</h1>
+            <div class="row">
+                <div class="col-xl-12 text-center">
+                    <div class="page-title-content">
+                        <h3 class="title text-white">{{ @$singleBlog->title }}</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('blog.frontend') }}">Blog</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Blog details</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Breadcrumbs End -->
+    </section>
 
-    <!-- Blog Section Start -->
-    <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
-        <div class="container custom">
+    <section class="blog-single-news pdt-110 pdb-90">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12 order-last">
-                    @include('frontend.pages.blogs.sidebar')
-                </div>
-                <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="blog-details">
-                                <div class="bs-img mb-35">
-                                    <a href="#">
-                                        <img class="lazy" data-src="{{ asset('/images/blog/'.@$singleBlog->image)}}" alt=""></a>
+                <div class="col-xl-8 col-lg-7">
+                    <div class="single-news-details news-wrapper mrb-30">
+                        <div class="news-thumb">
+                            <img class="img-full lazy" data-src="{{ asset('/images/blog/'.@$singleBlog->image)}}" alt=""></a>
+                        </div>
+                        <div class="single-news-content">
+                            <div class="news-bottom-meta mrt-20 mrb-10">
+                                <span class="entry-date"><i class="far fa-calendar-alt mrr-10 text-primary-color"></i>
+                                    {{date('j M, Y',strtotime(@$singleBlog->created_at))}}
+                                </span>
+                            </div>
+                            <h3 class="entry-title text-capitalize mrb-20"><a>{{ ucwords(@$singleBlog->title) }}</a></h3>
+                            <div class="entry-content custom-description">
+                                {!! $singleBlog->description !!}
+                            </div>
+                            <div class="single-news-tag-social-area clearfix">
+                                <div class="single-news-tags f-left f-left-none mrb-lg-30">
+                                    <h5 class="mrb-15">Category:</h5>
+                                    <ul class="list">
+                                        <li><a href="{{route('blog.category',$singleBlog->category->slug)}}">{{@$singleBlog->category->name }}</a></li>
+                                    </ul>
                                 </div>
-                                <div class="blog-full">
-                                    <ul class="single-post-meta">
+                                <div class="single-news-share text-left text-xl-right">
+                                    <h5 class="mrb-15">Social Share:</h5>
+                                    <ul class="social-icons">
                                         <li>
-                                            <span class="p-date"><i class="fa fa-calendar-check-o"></i>
-                                                {{date('j M, Y',strtotime(@$singleBlog->created_at))}}
-                                            </span>
+                                            <a href="#"><i class="fab fa-facebook" onclick='fbShare("{{route('blog.single',$singleBlog->slug)}}")'></i></a>
                                         </li>
-                                        <li class="Post-cate">
-                                            <div class="tag-line">
-                                                <i class="fa fa-book"></i>
-                                                <a href="{{route('blog.category',$singleBlog->category->slug)}}">{{@$singleBlog->category->name }} </a>
-                                            </div>
+                                        <li>
+                                            <a href="#"><i class="fab fa-twitter"  onclick='twitShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
                                         </li>
                                     </ul>
-                                    <h3>{{ ucwords(@$singleBlog->title) }}</h3>
-                                    <div class="custom-description">
-                                        {!! $singleBlog->description !!}
-                                    </div>
-                                    <div class="rs-counter style1 project-single bg23">
-                                        <div class="container">
-                                            <div class="row">
-                                                <h3 class="title title4" style="padding-bottom: 0px!important;font-size: 20px; margin-bottom: 4px;">
-                                                    Share
-                                                </h3>
-                                                <div class="col-lg-12">
-                                                    <ul class="footer-social md-mb-30">
-                                                        <li>
-                                                            <a href="#"><i class="fab fa-facebook" onclick='fbShare("{{route('blog.single',$singleBlog->slug)}}")'></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="fab fa-twitter"  onclick='twitShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-5 sidebar-right">
+                    @include('frontend.pages.blogs.sidebar')
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Blog Section End -->
-    </div>
-    <!-- Main content End -->
+    </section>
 @endsection
 
 @section('js')

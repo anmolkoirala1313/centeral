@@ -290,7 +290,7 @@ class FrontController extends Controller
 
     public function blogs(){
         $bcategories = $this->bcategory->withCount('blogs')->having('blogs_count', '>', 0)->get();
-        $allPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->paginate(6);
+        $allPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->paginate(2);
         $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
 
         return view('frontend.pages.blogs.index',compact('allPosts','latestPosts','bcategories'));

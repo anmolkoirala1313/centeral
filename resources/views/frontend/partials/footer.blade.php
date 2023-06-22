@@ -8,5 +8,7 @@
 <script src="{{ asset('assets/frontend/js/jquery-core-plugins.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
 <script src="{{ asset('assets/common/lazyload.js') }}"></script>
+@yield('js')
+@stack('scripts')
 </body>
 </html>

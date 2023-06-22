@@ -1,41 +1,40 @@
-<div class="widget-area">
-    <div class="search-widget mb-50">
-        <div class="search-wrap">
-            <form method="get" id="searchform" action="{{route('searchBlog')}}">
+<aside class="news-sidebar-widget">
+    <div class="widget sidebar-widget widget-search mrb-30">
+            <form method="get" class="search-form" id="searchform" action="{{route('searchBlog')}}">
+            <label>
                 <input type="search" id="s"
-                       name="s" placeholder="Search Blogs.."  class="search-input"
-                       oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
-                <button type="submit" value="Search"><i class="flaticon-search"></i></button>
-            </form>
-        </div>
+                       name="s" class="search-field" placeholder="Search Blogs..."   oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
+            </label>
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
     </div>
-    <div class="categories mb-50">
-        <div class="widget-title">
-            <h3 class="title">Categories</h3>
-        </div>
-        <ul>
+    <div class="widget sidebar-widget widget-categories">
+        <h4 class="mrb-30 single-blog-widget-title">Categories</h4>
+        <ul class="list">
             @foreach(@$bcategories as $bcategory)
-                <li><a href="{{route('blog.category',$bcategory->slug)}}">  {{ucwords(@$bcategory->name)}} ({{$bcategory->blogs->count()}})</a></li>
+                <li><i class="fas fa-caret-right vertical-align-middle text-primary-color mrr-10"></i>
+                    <a href="{{route('blog.category',$bcategory->slug)}}">  {{ucwords(@$bcategory->name)}}
+                        <span class="f-right">({{$bcategory->blogs->count()}})</span></a></li>
             @endforeach
         </ul>
     </div>
-    <div class="recent-posts">
-        <div class="widget-title">
-            <h3 class="title">Recent Posts</h3>
-        </div>
+    <div class="widget sidebar-widget widget-popular-posts">
+        <h4 class="mrb-30 single-blog-widget-title">Popular Posts</h4>
         @foreach($latestPosts as $index => $latest)
-            <div class="recent-post-widget {{ $loop->first ? 'no-border':'' }}">
-                <div class="post-img">
-                    <a href="{{route('blog.single',@$latest->slug)}}">
-                        <img class="lazy" data-src="{{(@$latest->image) ? asset('/images/blog/thumb/thumb_'.@$latest->image):''}}"
-                                                     alt=""></a>
-                </div>
-                <div class="post-desc">
-                    <a href="{{route('blog.single',@$latest->slug)}}">
-                        {{ucwords(@$latest->title)}} </a>
-                    <span class="date-post"> <i class="fa fa-calendar"></i>{{date('j M, Y',strtotime(@$latest->created_at))}} </span>
-                </div>
+            <div class="single-post media mrb-20">
+            <div class="post-image mrr-20">
+                <img class="lazy" data-src="{{(@$latest->image) ? asset('/images/blog/thumb/thumb_'.@$latest->image):''}}" alt="" style="max-width: 75%;">
             </div>
+            <div class="post-content media-body align-self-center">
+                <h5 class="mrb-5">
+                    <a href="{{route('blog.single',$latest->slug)}}">
+                        {{ucwords(@$latest->title)}}
+                    </a></h5>
+                <span class="post-date"><i class="fa fa-clock-o mrr-5"></i>
+                {{date('j M, Y',strtotime(@$latest->created_at))}}
+                </span>
+            </div>
+        </div>
         @endforeach
     </div>
-</div>
+</aside>

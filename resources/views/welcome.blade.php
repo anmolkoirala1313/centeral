@@ -574,5 +574,4 @@
 
 @endsection
 @section('js')
-    <script src="{{asset('assets/frontend/js/lightbox.min.js')}}"></script>
 @endsection
