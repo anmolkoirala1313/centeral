@@ -196,7 +196,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label>Submission Closing Date <span class="text-muted text-danger">*</span></label>
-                            <input type="text" class="form-control datetimepicker" name="end_date" id="end_date" required>
+                            <input type="date" class="form-control" name="end_date" id="end_date" required>
                             <div class="invalid-feedback">
                                 Please Select the career application closing date.
                             </div>
@@ -270,7 +270,7 @@
                         $("#edit_career").modal("toggle");
                         $('#name').attr('value',dataResult.edit.name);
                         $('#open_position').attr('value',dataResult.edit.open_position);
-                        $('#end_date').attr('value',dataResult.end);
+                        $('#end_date').attr('value',dataResult.edit.end_date);
                         $('#from_link').attr('value',dataResult.edit.from_link);
                         $('#salary').attr('value',dataResult.edit.salary);
                         $('#type option[value="'+dataResult.edit.type+'"]').prop('selected', true);

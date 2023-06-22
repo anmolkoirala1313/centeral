@@ -17,15 +17,24 @@
 
 @endsection
 @section('content')
-    <div class="rs-breadcrumbs" style="background:linear-gradient(rgb(246 184 51 / 29%), rgb(10 10 10 / 66%)), url( {{ $page_detail->image ? asset('images/page/'.$page_detail->image) : asset('assets/frontend/images/breadcrumbs/inr_1.jpg') }} ); margin-bottom:30px;">
+
+    <section class="page-title-section"
+             style="background:linear-gradient(rgb(246 184 51 / 29%), rgb(10 10 10 / 66%)), url( {{ $page_detail->image ? asset('images/page/'.$page_detail->image) : asset('assets/frontend/images/bg/page-title-bg.jpg') }} ); margin-bottom:30px;">
         <div class="container">
-            <div class="breadcrumbs-inner">
-                <h1 class="page-title">
-                    {{ucwords(@$page_detail->name)}}
-                </h1>
+            <div class="row">
+                <div class="col-xl-12 text-center">
+                    <div class="page-title-content">
+                        <h3 class="title text-white"> {{ucwords(@$page_detail->name)}} </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active"><a href="/">Home</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     @foreach($sections as $key=>$value)
 
@@ -240,40 +249,49 @@
         @endif
 
         @if($value == "gallery_section")
-            <div class="rs-project style3 pt-100 pb-100 md-pt-70 md-pb-70">
-                <div class="container">
-                    @if(@$heading!==null)
-                        <div class="sec-title3 text-center mb-25 md-mb-45">
-                            <span class="sub-title">  {{@$subheading ?? ''}}</span>
-                            <h2 class="title pb-15">
-                                {{@$heading}}
-                            </h2>
-                            <div class="heading-border-line"></div>
+            <section class="bg-silver-light pdt-105 pdb-80" data-background="{{asset('assets/frontend/images/bg/abs-bg4.png')}}" style="background-image: url({{asset('assets/frontend/images/bg/abs-bg4.png')}});">
+                @if(@$heading!==null)
+                    <div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-lg-8">
+                                    <div class="title-box-center">
+                                        <h5 class="sub-title-center text-primary-color line-top-center mrb-30">{{@$subheading ?? ''}}</h5>
+                                        <h2 class="title">   {{@$heading}}</h2>
+                                    </div>
+                                </div>
+                                <div class="col"></div>
+                            </div>
                         </div>
-                    @endif
-                    <div class="row">
-                        @if(count(@$gallery_elements) > 0)
-                            <div id="gallery" style="padding: 0px 30px 0 30px;">
-                                <div id="image-gallery">
-                                    <div class="row">
-                                        @foreach($gallery_elements as $gallery)
-                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
-                                                <div class="{{  $page_detail->slug =='legal-document' || $page_detail->slug =='legal-documents' ? "":"img-wrapper"   }}">
-                                                    <a href="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}">
-                                                        <img data-src="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}" class="img-responsive lazy"></a>
-                                                    <div class="img-overlay">
-                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </div>
+                @endif
+                <div class="section-content">
+                    <div class="container">
+                        <div class="row">
+                            @if(count(@$gallery_elements) > 0)
+                                <div id="gallery" style="padding: 0px 30px 0 30px;">
+                                    <div id="image-gallery">
+                                        <div class="row">
+                                            @foreach($gallery_elements as $gallery)
+                                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+                                                    <div class="{{  $page_detail->slug =='legal-document' || $page_detail->slug =='legal-documents' ? "":"img-wrapper"   }}">
+                                                        <a href="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}">
+                                                            <img data-src="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}" class="img-responsive lazy"></a>
+                                                        <div class="img-overlay">
+                                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
-                                    </div><!-- End row -->
-                                </div><!-- End image gallery -->
-                            </div><!-- End container -->
-                        @endif
+                                            @endforeach
+                                        </div><!-- End row -->
+                                    </div><!-- End image gallery -->
+                                </div><!-- End container -->
+                            @endif
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         @endif
 
         @if($value == "slider_list")

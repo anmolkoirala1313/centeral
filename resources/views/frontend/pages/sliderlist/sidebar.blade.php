@@ -1,22 +1,20 @@
-<div class="widget-area">
-    <div class="recent-posts">
-        <div class="widget-title">
-            <h3 class="title">Recent List</h3>
-        </div>
+<aside class="news-sidebar-widget">
+    <div class="widget sidebar-widget widget-popular-posts">
+        <h4 class="mrb-30 single-blog-widget-title">Recent List</h4>
         @foreach($slider_lists as $index => $latest)
-            <div class="recent-post-widget {{ $loop->first ? 'no-border':'' }}">
-                <div class="post-img">
-                    <a href="{{url('/slider-list/'.$latest->subheading)}}">
-                        <img class="lazy"
-                             data-src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$latest->list_image) }}" alt=""></a>
-                </div>
-                <div class="post-desc">
-                    <a href="{{url('/slider-list/'.$latest->subheading)}}">
-                        {{ucwords(@$latest->list_header)}} </a>
-                    <span class="date-post"> <i class="fa fa-calendar"></i>{{date('j M, Y',strtotime(@$latest->created_at))}} </span>
+            <div class="single-post media mrb-20">
+                <div class="post-content media-body align-self-center">
+                    <img class="lazy"
+                         data-src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$latest->list_image) }}" alt="">
+                    <h5 class="mrb-5" style="padding-top: 10px;">
+                        <a href="{{url('/slider-list/'.$latest->subheading)}}">
+                            {{ucwords(@$latest->list_header)}}
+                        </a></h5>
+                    <span class="post-date"><i class="fa fa-clock-o mrr-5"></i>
+                {{date('j M, Y',strtotime(@$latest->created_at))}}
+                </span>
                 </div>
             </div>
         @endforeach
     </div>
-</div>
-
+</aside>

@@ -1,44 +1,50 @@
 @extends('frontend.layouts.master')
 @section('title') Album @endsection
-@section('styles')
+@section('css')
 @endsection
 @section('content')
 
-    <!-- Breadcrumbs Start -->
-    <div class="rs-breadcrumbs img10">
-        <div class="container">
-            <div class="breadcrumbs-inner">
-                <h1 class="page-title">Our Albums</h1>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Section Start -->
-    <div class="rs-project style3 pt-100 pb-100 md-pt-70 md-pb-70">
+    <section class="page-title-section">
         <div class="container">
             <div class="row">
-                @foreach($albums as $album)
-                    <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <a href="{{route('album.gallery',$album->slug)}}">
-                                <img class="lazy" data-src="{{asset('/images/albums/'.@$album->cover_image)}}" alt="" />
-                            </a>
-                        </div>
-                        <div class="project-content">
-                            <div class="portfolio-inner">
-                                <span class="category"><a href="{{route('album.gallery',$album->slug)}}">Images: ({{count(@$album->gallery)}})</a></span>
-                                <h3 class="title"><a href="{{route('album.gallery',$album->slug)}}">{{ucwords(@$album->name)}}</a></h3>
-                            </div>
-                        </div>
+                <div class="col-xl-12 text-center">
+                    <div class="page-title-content">
+                        <h3 class="title text-white">Our Albums</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Our Albums</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
-                @endforeach
             </div>
         </div>
-    </div>
-    <!-- Project Section End -->
-    </div>
+    </section>
+
+    <section class="bg-silver-light pdt-105 pdb-80" data-background="{{asset('assets/frontend/images/bg/abs-bg4.png')}}" style="background-image: url({{asset('assets/frontend/images/bg/abs-bg4.png')}});">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    @foreach($albums as $album)
+                        <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="case-study-item mrb-30">
+                                <div class="case-study-thumb">
+                                    <img class="img-full lazy" data-src="{{asset('/images/albums/'.@$album->cover_image)}}" alt="">
+                                    <div class="case-study-details p-4">
+                                        <a href="{{route('album.gallery',$album->slug)}}">
+                                            <h6 class="case-study-category side-line mrb-5">Images: ({{count(@$album->gallery)}})</h6>
+                                            <h4 class="case-study-title">{{ucwords(@$album->name)}}</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 

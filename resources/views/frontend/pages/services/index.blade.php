@@ -11,53 +11,57 @@
 @endsection
 @section('content')
 
-    <!-- Breadcrumbs Start -->
-    <div class="rs-breadcrumbs img4">
+    <section class="page-title-section">
         <div class="container">
-            <div class="breadcrumbs-inner">
-                <h1 class="page-title">Our Services</h1>
+            <div class="row">
+                <div class="col-xl-12 text-center">
+                    <div class="page-title-content">
+                        <h3 class="title text-white">Our Services</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Our Services</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Breadcrumbs End -->
-    <div class="rs-services style2  pt-100 pb-100 md-pt-70 md-pb-70">
-        <div class="container custom">
+    </section>
+
+    <div class="service-details-page pdt-110 pdb-90">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12 order-last">
+                <div class="col-xl-4 col-lg-5 sidebar-right">
                     @include('frontend.pages.services.sidebar')
                 </div>
-                <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
+                <div class="col-xl-8 col-lg-7">
                     <div class="row">
                         @foreach(@$allservices as $index=>$service)
-                            <div class="col-lg-6 col-md-6 mb-20">
-                                <div class="service-wrap">
-                                    <div class="image-part">
-                                        <img class="lazy" data-src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt="" />
-                                    </div>
-                                    <div class="content-part">
-                                        <h3 class="title"><a href="{{route('service.single',$service->slug)}}">
-                                                {{ucwords(@$service->title)}}
-                                            </a></h3>
-                                        <div class="desc">{{ elipsis(strip_tags($service->description))}}</div>
+                            <div class="col-md-6 col-lg-6 col-xl-6">
+                                <div class="case-study-item mrb-30">
+                                    <div class="case-study-thumb">
+                                        <img class="img-full lazy" data-src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt="">
+                                        <div class="case-study-link-icon">
+                                            <a href="{{route('service.single',$service->slug)}}"><i class="webex-icon-attachment1"></i></a>
+                                        </div>
+                                        <div class="case-study-details p-4">
+                                            <h4 class="case-study-title side-line mb-3"> {{ucwords(@$service->title)}}</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-
-                        <div class="col-lg-12">
-                            <div class="pagination-area">
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <nav class="pagination-nav pdt-30 text-center">
                                 {{ $allservices->links('vendor.pagination.default') }}
-                            </div>
+                            </nav>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-    </div>
-    <!-- Main content End -->
-
-
 @endsection

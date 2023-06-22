@@ -4,43 +4,52 @@
 @endsection
 @section('content')
 
-    <!-- Breadcrumbs Start -->
-    <div class="rs-breadcrumbs img10">
-        <div class="container">
-            <div class="breadcrumbs-inner">
-                <h1 class="page-title">Our Video Gallery</h1>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Section Start -->
-    <div class="rs-project style3 pt-100 pb-100 md-pt-70 md-pb-70">
+    <section class="page-title-section">
         <div class="container">
             <div class="row">
-                @foreach($videoGalleries as $video)
-                    <div class="col-lg-4 mt-3">
-                        <div class="rs-videos choose-video">
-                            <div class="images-video">
-                                <img src="{{ getYoutubeThumbnail(@$video->url) }}" alt="images">
-                            </div>
-                            <div class="animate-border">
-                                <a class="popup-border" href="{{@$video->url}}">
-                                    <i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                        </div>
+                <div class="col-xl-12 text-center">
+                    <div class="page-title-content">
+                        <h3 class="title text-white">Our Video Gallery</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Our Video Gallery</li>
+                            </ol>
+                        </nav>
                     </div>
-                @endforeach
-                    <div class="col-lg-12 pt-60 text-center">
-                        <div class="pagination-area">
-                            {{ $videoGalleries->links('vendor.pagination.default') }}
-                        </div>
-                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Project Section End -->
-    </div>
+    </section>
+
+    <section class="bg-silver-light pdt-105 pdb-80" data-background="{{asset('assets/frontend/images/bg/abs-bg4.png')}}" style="background-image: url({{asset('assets/frontend/images/bg/abs-bg4.png')}});">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    @foreach($videoGalleries as $video)
+                        <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="case-study-item mrb-30">
+                                <div class="popup-video-block video-popup">
+                                    <img class="img-full" src="{{ getYoutubeThumbnail(@$video->url) }}" alt="">
+                                    <a href="{{@$video->url}}" class="popup-video popup-youtube">
+                                        <i class="webexflaticon flaticon-play-button" aria-hidden="true"></i>
+                                        <span class="pulse-animation"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <nav class="pagination-nav pdt-30 text-center">
+                            {{ $videoGalleries->links('vendor.pagination.default') }}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 

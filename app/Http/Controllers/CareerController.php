@@ -85,9 +85,7 @@ class CareerController extends Controller
     public function edit($id)
     {
         $edit         = Career::find($id);
-        $end          = Carbon::createFromFormat('Y-m-d', $edit->end_date)->format('d/m/Y');
-
-        return response()->json(["edit"=>$edit,"end"=>$end]);
+        return response()->json(["edit"=>$edit]);
     }
 
     /**
