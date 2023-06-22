@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SectionElement;
 use App\Models\SectionGallery;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -143,7 +144,7 @@ class SectionElementController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -153,6 +154,7 @@ class SectionElementController extends Controller
         if($section_name == 'basic_section'){
             $data=[
                 'heading'                => $request->input('heading'),
+                'subheading'             => $request->input('subheading'),
                 'page_section_id'        => $section_id,
                 'description'            => $request->input('description'),
                 'list_image'             => $request->input('list_image'),
@@ -164,7 +166,7 @@ class SectionElementController extends Controller
                 $image        = $request->file('image');
                 $name         = uniqid().'_basic_'.$image->getClientOriginalName();
                 $path         = base_path().'/public/images/section_elements/basic_section/';
-                $moved        = Image::make($image->getRealPath())->fit(750, 750)->orientate()->save($path.$name);
+                $moved        = Image::make($image->getRealPath())->fit(575, 645)->orientate()->save($path.$name);
                 if ($moved){
                     $data['image']= $name;
                 }
@@ -188,7 +190,6 @@ class SectionElementController extends Controller
             $data=[
                 'page_section_id'        => $section_id,
                 'heading'                => $request->input('heading'),
-                'subheading'             => $request->input('subheading'),
                 'button'                 => $request->input('button'),
                 'button_link'            => $request->input('button_link'),
                 'created_by'             => Auth::user()->id,
@@ -208,7 +209,7 @@ class SectionElementController extends Controller
                 $image = $request->file('image');
                 $name = uniqid() . '__background__' . $image->getClientOriginalName();
                 $path = base_path() . '/public/images/section_elements/bgimage_section/';
-                $moved = Image::make($image->getRealPath())->fit(717, 718)->orientate()->save($path . $name);
+                $moved = Image::make($image->getRealPath())->fit(575, 645)->orientate()->save($path . $name);
                 if ($moved) {
                     $data['image'] = $name;
                 }
@@ -351,9 +352,9 @@ class SectionElementController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -363,6 +364,7 @@ class SectionElementController extends Controller
         if($section_name == 'basic_section'){
             $basic                      = SectionElement::find($id);
             $basic->heading             = $request->input('heading');
+            $basic->subheading          = $request->input('subheading');
             $basic->page_section_id     = $section_id;
             $basic->list_image          = $request->input('list_image');
             $basic->description         = $request->input('description');
@@ -375,7 +377,7 @@ class SectionElementController extends Controller
                 $image                = $request->file('image');
                 $name                 = uniqid().'_basic_'.$image->getClientOriginalName();
                 $path                 = base_path().'/public/images/section_elements/basic_section/';
-                $moved                = Image::make($image->getRealPath())->fit(750, 750)->orientate()->save($path.$name);
+                $moved                = Image::make($image->getRealPath())->fit(575, 645)->orientate()->save($path.$name);
                 if ($moved){
                     $basic->image = $name;
                     if (!empty($oldimage) && file_exists(public_path().'/images/section_elements/basic_section/'.$oldimage)){
@@ -401,7 +403,6 @@ class SectionElementController extends Controller
             $action                      = SectionElement::find($id);
             $action->page_section_id     = $section_id;
             $action->heading             = $request->input('heading');
-            $action->subheading          = $request->input('subheading');
             $action->description         = $request->input('description');
             $action->button              = $request->input('button');
             $action->button_link         = $request->input('button_link');
@@ -422,7 +423,7 @@ class SectionElementController extends Controller
                 $image        = $request->file('image');
                 $name         = uniqid().'__background__'.$image->getClientOriginalName();
                 $path         = base_path().'/public/images/section_elements/bgimage_section/';
-                $moved        = Image::make($image->getRealPath())->fit(717, 718)->orientate()->save($path.$name);
+                $moved        = Image::make($image->getRealPath())->fit(575, 645)->orientate()->save($path.$name);
                 if ($moved){
                     $action->image = $name;
                     if (!empty($oldimage) && file_exists(public_path().'/images/section_elements/bgimage_section/'.$oldimage)){

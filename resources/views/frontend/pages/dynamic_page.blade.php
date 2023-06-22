@@ -39,87 +39,77 @@
     @foreach($sections as $key=>$value)
 
         @if($value == "basic_section")
-            <div class="rs-about style2 pt-20 pb-30">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 pr-33 md-pr-15 md-mb-50">
-                            <div class="images-part">
-                                <img class="lazy" data-src="{{asset('/images/section_elements/basic_section/'.@$basic_elements->image) }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 ">
-                            <div class="sec-title">
-                                <h2 class="title">
-                                    {{@$basic_elements->heading ?? ''}}
-                                </h2>
-                                <div class="margin-0 pt-10 text-justify"> {!! @$basic_elements->description !!}</div>
+            <section class="pdt-0 pdb-110 pdb-md-110 bg-pos-center-bottom" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}"
+                     style="background-image: url({{asset('assets/frontend/images/bg/abs-bg1.png')}});">
+                <div class="section-content">
+                    <div class="container">
+                        <div class="row align-items-center pdt-80">
+                            <div class="col-md-12 col-xl-6">
+                                <h5 class="mrb-15 text-primary-color sub-title-side-line">{{@$basic_elements->subheading ?? ''}}</h5>
+                                <h2 class="mrb-30">{{@$basic_elements->heading ?? ''}}</h2>
+                                <div class="mrb-30 text-justify">
+                                    {!! @$basic_elements->description !!}
+                                </div>
                                 @if(@$basic_elements->button_link)
-                                    <div class="btn-part mt-3 md-mt-30">
-                                        <a class="readon consultant discover" href="{{@$basic_elements->button_link}}">
-                                            {{ucwords(@$basic_elements->button ?? 'Discover More')}}
-                                        </a>
-                                    </div>
+                                    <a href="{{@$basic_elements->button_link}}" class="cs-btn-one btn-gradient-color btn-lg">
+                                        {{ucwords(@$basic_elements->button ?? 'Discover More')}}
+                                    </a>
                                 @endif
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rs-animation">
-                    <div class="animate-style">
-                        <img class="scale" src="{{asset('assets/frontend/images/about/tri-circle-1.png')}}" alt="About">
-                    </div>
-                </div>
-            </div>
-        @endif
-
-        @if($value == "call_to_action_1")
-            <div class="rs-cta style1 bg13 pt-70 pb-60 md-pt-70 md-pb-65">
-                <div class="container">
-                    <div class="row y-middle">
-                        <div class="col-lg-7 md-mb-30">
-                            <div class="sec-title2">
-                                <div class="sub-text">{{@$call1_elements->subheading ?? ''}}</div>
-                                <h2 class="title white-color margin-0">
-                                    <?php
-                                    $split = explode(" ", @$call1_elements->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$call1_elements->heading)."\n"}}
-                                    <span class="new-next"> {{$split[count($split)-1]}} </span>
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="btn-part text-right md-left mt-3">
-                                <a class="readon consultant discover" href="{{@$call1_elements->button_link ?? '/contact-us'}}">
-                                    {{ucwords(@$call1_elements->button ?? 'Get Started')}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-
-        @if($value == "background_image_section")
-            <div class="rs-about bg19 pt-40 pb-80 md-pb-70">
-                <div class="container">
-                    <div class="row y-middle">
-                        <div class="col-lg-6 pr-50 md-pr-15">
-                            <div class="sec-title">
-                                <h2 class="title title4 pb-30">
-                                    {{@$bgimage_elements->heading ?? ''}}
-                                </h2>
-                                <div class="margin-0 pb-30 text-justify">
-                                    {{ @$bgimage_elements->description }}
+                            <div class="col-md-12 col-xl-6">
+                                <div class="about-image-block">
+                                    <img class="img-full lazy" data-src="{{asset('/images/section_elements/basic_section/'.@$basic_elements->image) }}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="images-part">
-                                <img src="{{asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image)}}" alt="Images">
+                    </div>
+                </div>
+            </section>
+        @endif
+
+        @if($value == "call_to_action_1")
+            <section class="pdt-90 pdb-20 section-white-typo" data-background="{{asset('assets/frontend/images/bg/11.jpg')}}" data-overlay-dark="8"
+                     style="background-image: url({{asset('assets/frontend/images/bg/11.jpg')}});">
+                <div class="section-title text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col"></div>
+                            <div class="col-lg-9 col-xl-12">
+                                <div class="section-title-block">
+                                    <h2>{{@$call1_elements->heading ?? ''}}</h2>
+                                </div>
+                                <a href="{{@$call1_elements->button_link ?? '/contact-us'}}" class="cs-btn-one btn-gradient-color btn-md has-icon mrt-20">
+                                    {{ucwords(@$call1_elements->button ?? 'Reach Out')}}</a>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+
+        @if($value == "background_image_section")
+            <section class="pdt-110 pdb-60" data-background="{{asset('assets/frontend/images/bg/4.jpg')}}" data-overlay-dark="8"
+                     style="background-image: url({{asset('assets/frontend/images/bg/4.jpg')}});">
+                <div class="section-content">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-12 col-xl-6">
+                                <h5 class="mrb-15 text-white sub-title-side-line">{{@$bgimage_elements->subheading ?? ''}}</h5>
+                                <h2 class="text-white mrb-30"> {{@$bgimage_elements->heading ?? ''}}</h2>
+                                <div class="text-white text-justify mrb-60">
+                                    {{ @$bgimage_elements->description }}
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-xl-6">
+                                <div class="about-image-block-3">
+                                    <img class="img-full lazy" data-src="{{asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image)}}" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         @endif
 
         @if($value == "flash_cards")
@@ -182,39 +172,28 @@
         @endif
 
         @if($value == "map_and_description")
-            <div class="rs-contact contact-style2 bg11 pt-95 pb-100 md-pt-65 md-pb-70">
+            <section class="contact-section pdt-110 pdb-95 pdb-lg-90" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}">
                 <div class="container">
-                    <div class="row y-middle">
-                        <div class="col-lg-6">
-                            <div class="sec-title2 mb-45 md-mb-30">
-                                <div class="sub-text">{{@$map_descp->subheading ?? ''}}</div>
-                                <h2 class="title mb-23">
-                                    <?php
-                                    $split = explode(" ", @$map_descp->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$map_descp->heading)."\n"}}
-                                    <span> {{$split[count($split)-1]}} </span>
-                                </h2>
-                                <div class="desc mb-0 text-justify">
-                                    {!! @$map_descp->description !!}
-                                </div>
-                                @if(@$map_descp->button_link)
-                                    <div class="btn-part mt-3">
-                                        <a class="readon consultant discover" href="{{@$map_descp->button_link}}">
-                                            {{ucwords(@$map_descp->button ?? 'Contact us')}}
-                                        </a>
-                                    </div>
-                                @endif
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-6">
+                            <h5 class="sub-title-side-line text-primary-color mrt-0 mrb-15">{{@$map_descp->subheading ?? ''}}</h5>
+                            <h3 class="faq-title mrb-30">{{@$map_descp->heading ?? ''}}</h3>
+                            <div class="mrb-40 text-justify">
+                                {!! @$map_descp->description !!}
                             </div>
+                            @if(@$map_descp->button_link)
+                                <a href="{{@$map_descp->button_link}}" class="cs-btn-one btn-gradient-color btn-lg">
+                                    {{ucwords(@$map_descp->button ?? 'Contact us')}}</a>
+                            @endif
                         </div>
-                        <div class="col-lg-6">
-                            <div class="contact-map">
-                                <iframe src="{{@$setting_data->google_map ?? ''}}"
-                                        width="600" height="400" style="border:0;"
-                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
+                        <div class="col-lg-6 col-xl-6">
+                            <iframe src="{{@$setting_data->google_map ?? ''}}"
+                                    width="600" height="400" style="border:0;"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         @endif
 
         @if($value == "small_box_description")

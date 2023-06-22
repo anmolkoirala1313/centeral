@@ -23,7 +23,7 @@
         </div>
     </section>
 
-    <section class="contact-section pdt-110 pdb-95 pdb-lg-90" data-background="images/bg/abs-bg1.png">
+    <section class="contact-section pdt-110 pdb-95 pdb-lg-90" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}">
         <div class="container">
             <div class="row mrb-40">
                 <div class="col-lg-6 col-xl-4">

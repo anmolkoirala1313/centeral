@@ -572,6 +572,27 @@
     </section>
 @endif
 
+@if(@$setting_data->grievance_heading)
+    <section class="contact-section pdt-110 pdb-95 pdb-lg-90" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-6">
+                    <h5 class="sub-title-side-line text-primary-color mrt-0 mrb-15">Get In Touch</h5>
+                    <h3 class="faq-title mrb-30">{{ @$setting_data->grievance_heading }}</h3>
+                    <div class="mrb-40 text-justify">
+                        {{ ucfirst(@$setting_data->grievance_description) }}
+                    </div>
+                    <a href="{{route('contact')}}" class="cs-btn-one btn-gradient-color btn-lg"> Contact Us</a>
+                </div>
+                <div class="col-lg-6 col-xl-6">
+                    <iframe src="{{@$setting_data->google_map ?? ''}}"
+                            width="600" height="400" style="border:0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+@endif
 @endsection
 @section('js')
 @endsection

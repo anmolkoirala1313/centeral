@@ -172,6 +172,13 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
+                                                    <label>Sub Heading </label>
+                                                    <input type="text" class="form-control" maxlength="35" name="subheading" value="{{@$basic_elements->subheading}}">
+                                                    <div class="invalid-feedback">
+                                                        Please enter the basic section Sub heading.
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3">
                                                     <label>Description <span class="text-muted text-danger">* write 1100 characters only</span></label>
                                                     <textarea class="form-control" maxlength="1100" rows="14" name="description" id="basic_editor" required>{!! @$basic_elements->description !!}</textarea>
                                                     <div class="invalid-feedback">
@@ -211,8 +218,7 @@
                                                     <input  type="file" accept="image/png, image/jpeg" hidden
                                                             id="basic-image" onchange="loadbasicFile('basic-image','current-basic-img',event)" name="image" {{(@$basic_elements->id !== null) ? "":"required" }}
                                                             class="profile-foreground-img-file-input" >
-
-                                                    <figcaption class="figure-caption">Banner image for current basic section. (SIZE:  750 x 750px)</figcaption>
+                                                    <figcaption class="figure-caption">Banner image for current basic section. (SIZE:  575 x 645px)</figcaption>
                                                     <div class="invalid-feedback" >
                                                         Please select a image.
                                                     </div>
@@ -334,13 +340,6 @@
                                                      </div>
                                                  </div>
                                                  <div class="form-group mb-3">
-                                                     <label>Subheading </label>
-                                                     <input type="text" maxlength="40" class="form-control" value="{{@$call1_elements->subheading}}" name="subheading">
-                                                     <div class="invalid-feedback">
-                                                         Please enter the subheading.
-                                                     </div>
-                                                 </div>
-                                                 <div class="form-group mb-3">
                                                      <label>Button Text </label>
                                                      <input type="text" maxlength="60" class="form-control" value="{{@$call1_elements->button}}" name="button">
                                                      <div class="invalid-feedback">
@@ -394,8 +393,16 @@
                                                      </div>
 
                                                      <div class="form-group mb-3">
+                                                         <label>Subheading </label>
+                                                         <input type="text" maxlength="40" class="form-control" value="{{@$bgimage_elements->subheading}}" name="subheading">
+                                                         <div class="invalid-feedback">
+                                                             Please enter the subheading.
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group mb-3">
                                                          <label>Description </label>
-                                                         <textarea class="form-control" maxlength="1200" rows="12" name="description" >{{@$bgimage_elements->description}}</textarea>
+                                                         <textarea class="form-control" maxlength="950" rows="12" name="description" >{{@$bgimage_elements->description}}</textarea>
                                                          <div class="invalid-feedback">
                                                              Please enter the description.
                                                          </div>
@@ -418,7 +425,7 @@
                                                                  id="background-image" onchange="loadbasicFile('background-image','current-backgroundss-img',event)" name="image" {{(@$bgimage_elements !=="")? "":"required"}}
                                                                  class="profile-foreground-img-file-input" >
 
-                                                         <figcaption class="figure-caption">Banner image for current background section. (SIZE: 723 x 610px)</figcaption>
+                                                         <figcaption class="figure-caption">Banner image for current background section. (SIZE: 575 x 645px)</figcaption>
                                                          <div class="invalid-feedback" >
                                                              Please select a image.
                                                          </div>
