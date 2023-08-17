@@ -113,62 +113,73 @@
         @endif
 
         @if($value == "flash_cards")
-            <div class="rs-services style1 modify shape-bg pt-128 md-pt-70 pb-80 md-pb-80">
-                <div class="container">
-                    <div class="sec-title4 text-center mb-60">
-                        <div class="sub-title mb-2">{{$flash_elements[0]->subheading ?? ''}}</div>
-                        <h2 class="title primary-color">{{@$flash_elements[0]->heading ?? ''}}</h2>
-                    </div>
-                    <div class="row service-wrap mr-0 ml-0">
-                        @foreach(@$flash_elements as $index=>$flash_element)
-                            <div class="col-lg-4 padding-0 {{ $loop->first ? 'pr-1':'' }}">
-                                <div class="service-grid">
-                                    <div class="service-icon mb-23">
-                                        <img src="{{ asset('assets/frontend/images/services/'.get_icons($index)) }}" alt="">
-                                    </div>
-                                    <h4 class="title mb-18">
-                                        <a>
-                                            {{ucwords(@$flash_element->list_header)}}
-                                        </a>
-                                    </h4>
-                                    <div class="desc mb-12">
-                                        {{ucfirst(@$flash_element->list_description) }}
-                                    </div>
+            <section class="serivce-section pdt-40 pdb-40 z-index-1 position-relative">
+                <div class="section-content">
+                    <div class="container">
+                        <div class="row pdb-40">
+                            <div class="col"></div>
+                            <div class="col-lg-8 col-xl-6">
+                                <div class="section-title-block text-center">
+                                    <h5 class="text-primary-color anim-box-objects text-underline mrb-15">{{$flash_elements[0]->subheading ?? ''}}</h5>
+                                    <h2>{{@$flash_elements[0]->heading ?? ''}}</h2>
                                 </div>
                             </div>
-                        @endforeach
+                            <div class="col"></div>
+                        </div>
+                        <div class="row">
+                            @foreach(@$flash_elements as $index=>$flash_element)
+                                <div class="col-md-6 col-xl-4 d-flex align-items-stretch">
+                                    <div class="service-box border-radius-default">
+                                        <div class="service-icon">
+                                            <span class="webexflaticon {{ get_icons($index) }}"></span>
+                                        </div>
+                                        <div class="service-content">
+                                            <div class="title">
+                                                <a><h3> {{ucwords(@$flash_element->list_header)}}</h3></a>
+                                            </div>
+                                            <div class="para">
+                                                <p>{{ucfirst(@$flash_element->list_description) }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         @endif
 
         @if($value == "simple_header_and_description")
-            <div class="rts-service-details-area rts-section-gap" style="padding: 0px!important;">
-               <div class="container">
-                   @if(@$header_descp_elements->heading!==null)
-                       <div class="sec-title2 text-center md-left mb-20">
-                           <div class="sub-text">
-                               {{@$header_descp_elements->subheading ?? ''}}
-                           </div>
-                           <h2 class="title mb-0 md-pb-20">
-                               <?php
-                               $split = explode(" ", @$header_descp_elements->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$header_descp_elements->heading)."\n"}}
-                               <span class="new-next"> {{$split[count($split)-1]}} </span>
-                           </h2>
-                       </div>
-                   @endif
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <!-- service details left area start -->
-                            <div class="service-detials-step-1">
-                                <div class="disc custom-description text-justify">
-                                    {!! @$header_descp_elements->description !!}
+            <section class="serivce-section pdt-40 pdb-40 z-index-1 position-relative">
+                <div class="section-content">
+                    <div class="container">
+                        @if(@$header_descp_elements->heading!==null)
+                            <div class="row pdb-40">
+                                <div class="col"></div>
+                                <div class="col-lg-8 col-xl-6">
+                                    <div class="section-title-block text-center">
+                                        <h5 class="text-primary-color anim-box-objects text-underline mrb-15">
+                                            {{@$header_descp_elements->subheading ?? ''}}</h5>
+                                        <h2>  {{@$header_descp_elements->heading ?? ''}}</h2>
+                                    </div>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+                        @endif
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12 mdt-20">
+                                <!-- service details left area start -->
+                                <div class="service-detials-step-1">
+                                    <div class="disc custom-description text-justify">
+                                        {!! @$header_descp_elements->description !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         @endif
 
         @if($value == "map_and_description")
@@ -182,13 +193,12 @@
                                 {!! @$map_descp->description !!}
                             </div>
                             @if(@$map_descp->button_link)
-                                <a href="{{@$map_descp->button_link}}" class="cs-btn-one btn-gradient-color btn-lg">
-                                    {{ucwords(@$map_descp->button ?? 'Contact us')}}</a>
+                                <a href="{{@$map_descp->button_link}}" class="cs-btn-one btn-gradient-color btn-lg"> {{ucwords(@$map_descp->button ?? 'Contact us')}} </a>
                             @endif
                         </div>
                         <div class="col-lg-6 col-xl-6">
                             <iframe src="{{@$setting_data->google_map ?? ''}}"
-                                    width="600" height="400" style="border:0;"
+                                    width="600" height="850" style="border:0;"
                                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
@@ -198,32 +208,42 @@
 
         @if($value == "small_box_description")
             @if(count($process_elements)>0)
-            <div id="rs-services" class="rs-services style6 bg14" style="margin-top: 0px;padding-top: 100px;padding-bottom: 100px;">
-                <div class="container">
-                    <div class="sec-title text-center mb-50">
-                        <span class="sub-text small"> {{ ucfirst($process_elements[0]->subheading ?? '') }}</span>
-                        <h2 class="title title3">
-                            {{@$process_elements[0]->heading}}
-                        </h2>
-                    </div>
-                    <div class="services-box-area bg20">
-                        <div class="row margin-0">
+                <section class="feature-section pdt-50 pdb-130 bg-silver-light bg-no-repeat" style="background: #fff">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col"></div>
+                            <div class="col-lg-8">
+                                <div class="title-box-center text-center">
+                                    <h5 class="sub-title-center text-primary-color line-top-center mrb-30"> {{ ucfirst($process_elements[0]->subheading ?? '') }}</h5>
+                                    <h2 class="title">  {{@$process_elements[0]->heading}}</h2>
+                                </div>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
                             @for ($i = 1; $i <=@$process_num; $i++)
-                                <div class="col-lg-4 col-md-6 col-sm-6 padding-0">
-                                    <div class="services-item">
-                                        <div class="services-content">
-                                            <h3 class="title"><a> {{ucwords(@$process_elements[$i-1]->list_header ??'')}}</a></h3>
-                                            <p class="margin-0 text-justify">
-                                                {{ucfirst(@$process_elements[$i-1]->list_description)}}
-                                            </p>
+                                <div class="col-md-4 col-xl-4 mt-4 d-flex align-items-stretch">
+                                    <div class="feature-box mrb-lg-60">
+
+                                        <div class="feature-content" style="background: #F7F8FC;">
+                                            <div class="title">
+                                                <h4>{{ucwords(@$process_elements[$i-1]->list_header ??'')}}</h4>
+                                            </div>
+                                            <div class="para">
+                                                <p style="    text-align: justify;">   {{ucfirst(@$process_elements[$i-1]->list_description)}}</p>
+                                            </div>
+                                            <div class="link">
+{{--                                                <a></a>--}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             @endfor
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
             @endif
         @endif
 
@@ -275,43 +295,51 @@
 
         @if($value == "slider_list")
             @if(count($slider_list_elements)>0))
-
-            <div id="rs-services" class="rs-services style2 gray-bg pt-100 pb-100 md-pt-70 md-pb-70">
-                <div class="container">
-                    <div class="sec-title2 d-flex align-items-center mb-60 md-mb-40">
-                        <div class="first-half">
-                            <div class="sub-text">{{ucwords(@$slider_list_elements[0]->description)}}</div>
-                            <h2 class="title mb-0 md-pb-20">
-                                <?php
-                                $split = explode(" ", @$slider_list_elements[0]->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$slider_list_elements[0]->heading)."\n"}}
-                                <span> {{$split[count($split)-1]}} </span>
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
-                         data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
-                         data-dots="true" data-nav="false" data-nav-speed="false" data-md-device="3"
-                         data-md-device-nav="false" data-md-device-dots="true" data-center-mode="false" data-ipad-device2="2"
-                         data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-ipad-device="2"
-                         data-ipad-device-nav="false" data-ipad-device-dots="true" data-mobile-device="1"
-                         data-mobile-device-nav="false" data-mobile-device-dots="true">
-                        @for ($i = 1; $i <=@$list_3; $i++)
-                            <div class="service-wrap">
-                                <div class="image-part">
-                                    <img class="lazy" data-src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$slider_list_elements[$i-1]->list_image) }}" alt="">
-                                </div>
-                                <div class="content-part">
-                                    <h3 class="title" style="font-size: 18px;line-height: 26px;font-weight: 600;">
-                                        <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}">
-                                            {{ucwords(@$slider_list_elements[$i-1]->list_header)}}
-                                        </a>
-                                    </h3>
+                <section class="request-a-call-back pdt-80 pdb-110 pdb-lg-70" data-background="images/bg/abs-bg7.png">
+                <div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col"></div>
+                            <div class="col-lg-8">
+                                <div class="title-box-center">
+                                    <h5 class="sub-title-center text-primary-color line-top-center mrb-30">{{ucwords(@$slider_list_elements[0]->description)}}</h5>
+                                    <h2 class="title">{{ucwords(@$slider_list_elements[0]->heading)}}</h2>
                                 </div>
                             </div>
-                        @endfor
+                            <div class="col"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="section-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="owl-carousel testimonial-items-3col mrb-lg-40">
+                                @for ($i = 1; $i <=@$list_3; $i++)
+                                    <div class="testimonial-item d-flex align-items-stretch" style="padding:0px; padding-bottom: 30px; background-color: #fff">
+                                        <div class="feature-box mrb-lg-60">
+                                            <div class="feature-thumb">
+                                                <img class="img-full" src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$slider_list_elements[$i-1]->list_image) }}" alt="">
+                                            </div>
+                                            <div class="feature-content align-items-stretch" style="background: #F7F8FC">
+                                                <div class="title">
+                                                    <h3 style="  font-size: 22px;"> {{ucwords(@$slider_list_elements[$i-1]->list_header)}}</h3>
+                                                </div>
+                                                <div class="para">
+                                                    <p> {{ elipsis(@$slider_list_elements[$i-1]->list_description)}} </p>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}"><i class="fas fa-long-arrow-alt-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endfor
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             @endif
         @endif
 

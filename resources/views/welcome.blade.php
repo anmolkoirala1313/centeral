@@ -586,7 +586,7 @@
                 </div>
                 <div class="col-lg-6 col-xl-6">
                     <iframe src="{{@$setting_data->google_map ?? ''}}"
-                            width="600" height="400" style="border:0;"
+                            width="600" height="850" style="border:0;"
                             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>

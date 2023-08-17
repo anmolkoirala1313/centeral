@@ -320,7 +320,7 @@
 			owl.owlCarousel({
 				loop: true,
 				margin: 30,
-				autoplay: false,
+				autoplay: true,
 				autoplayTimeout: 8000,
 				nav: true,
 				dots: false,

@@ -181,13 +181,13 @@ if (!function_exists('get_icons')) {
     function get_icons($index){
         $icon   = '';
         if($index == 0){
-            $icon = 'mission.png';
+            $icon = 'flaticon-target-1';
         }else if($index == 1){
-            $icon = 'vision.png';
+            $icon = 'flaticon-analytics';
         }else if($index == 2){
-            $icon = 'benefits.png';
+            $icon = 'flaticon-trophy';
         }else{
-            $icon = 'quality.png';
+            $icon = 'flaticon-startup';
         }
 
         return $icon;
