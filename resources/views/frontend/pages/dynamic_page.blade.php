@@ -12,6 +12,7 @@
             height: 100%;
             object-fit: cover;
         }
+
     </style>
     <link rel="stylesheet" href="{{asset('assets/common/lightbox.css')}}">
 
@@ -342,6 +343,45 @@
             </section>
             @endif
         @endif
+
+        @if($value == "card_image")
+            <section class="contact-section pdt-10 pdb-95 pdb-lg-90" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}">
+                <div class="container">
+                    @if($card_image->first()->heading)
+                        <div class="col-md-12 col-xl-12 text-center">
+                            <h5 class="mrb-15 text-primary-color sub-title-side-line">{{ $card_image->first()->subheading ?? '' }}</h5>
+                            <h2 class="mrb-30" style="width: 60%;margin: auto">{{ $card_image->first()->heading ?? '' }}</h2>
+                        </div>
+                        <p class="mrb-30 mt-3 text-center">
+                            {{ $card_image->first()->description ?? '' }}
+                        </p>
+                    @endif
+
+                    @foreach($card_image as $row)
+                        <div class="card custom-card mt-5">
+                            <div class="row no-gutters">
+                                <div class="col-md-{{ $row->image == 'left' ? '5':'7' }}">
+                                    @if($row->image == 'left')
+                                        @include('frontend.pages.partials.card_image')
+                                    @else
+                                        @include('frontend.pages.partials.card_text')
+                                    @endif
+                                </div>
+                                <div class="col-md-{{ $row->image == 'left' ? '7':'5' }}">
+                                    @if($row->image == 'right')
+                                        @include('frontend.pages.partials.card_image')
+                                    @else
+                                        @include('frontend.pages.partials.card_text')
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </section>
+        @endif
+
+
 
     @endforeach
 
