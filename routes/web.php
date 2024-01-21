@@ -68,7 +68,7 @@ Route::get('/clients', 'App\Http\Controllers\FrontController@clients')->name('cl
 Route::get('/our-category', 'App\Http\Controllers\FrontController@category')->name('category.frontend');
 Route::get('our-category/{slug}','App\Http\Controllers\FrontController@categorySingle')->name('category.single');
 Route::get('/team', 'App\Http\Controllers\FrontController@team')->name('team');
-//Route::get('/director', 'App\Http\Controllers\FrontController@director')->name('director');
+Route::get('/director', 'App\Http\Controllers\FrontController@director')->name('director');
 
 //jobs
 Route::get('jobs/search/', 'App\Http\Controllers\FrontController@searchJob')->name('searchJob');

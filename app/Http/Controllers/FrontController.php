@@ -78,7 +78,7 @@ class FrontController extends Controller
         $testimonials       = Testimonial::orderBy('created_at', 'asc')->get();
         $latestPosts        = $this->blog->inRandomOrder()->take(3)->get();
         $recruitments       = RecruitmentProcess::all();
-        $director           = ManagingDirector::orderBy('order', 'asc')->get();
+        $director           = ManagingDirector::orderBy('order', 'asc')->where('homepage_display', true)->get();
         $today              = date('Y-m-d');
         $latestJobs         = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->take(3)->get();
         $recuruitment_index = [3,7,11,15];
@@ -474,8 +474,17 @@ class FrontController extends Controller
     }
 
     public function team(){
+
         $teams = Team::orderBy('order', 'asc')->paginate(12);
+
         return view('frontend.pages.team',compact('teams'));
+    }
+
+    public function director(){
+
+        $teams = ManagingDirector::orderBy('order', 'asc')->paginate(12);
+
+        return view('frontend.pages.director',compact('teams'));
     }
 
 

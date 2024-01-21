@@ -9,6 +9,6 @@ class ManagingDirector extends Model
 {
     use HasFactory;
     protected $table ='managing_director';
-    protected $fillable =['id','heading','designation','description','order','link','button','image','created_by','updated_by'];
+    protected $fillable =['id','heading','designation','description','summary','order','homepage_display','link','button','image','created_by','updated_by'];
 
 }

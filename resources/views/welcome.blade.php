@@ -387,6 +387,49 @@
     </section>
 @endif
 
+@if(count($director) > 0)
+    <section class="request-a-call-back pdt-40 pdt-sm-50 pdb-110 pdb-lg-70" data-background="{{asset('assets/frontend/images/bg/abs-bg7.png')}}">
+        <div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms" style="margin-bottom: 0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-lg-8">
+                        <div class="title-box-center">
+                            <h5 class="sub-title-center text-primary-color line-top-center mrb-30">Upclose</h5>
+                            <h2 class="title">Message from Our Directors</h2>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="owl-carousel testimonial-items-1col mrb-lg-40  h-100">
+                        @foreach($director as $row)
+                            <div class="card custom-card-2 mt-5">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="{{ asset(imagePath('director/'.$row->image)) }}" class="" alt="Card Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h4 class="team-title mrb-5">{{ $row->heading ?? '' }}</h4>
+                                            <h6 class="designation text-gray f-weight-400 mb-2">{{ $row->designation ?? '' }}</h6>
+                                            <p class="text-align-justify">{{ $row->description ?? '' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endif
+
 @if(!empty($homepage_info->why_heading))
     <section class="pdt-110 pdb-60" data-background="{{ asset('assets/frontend/images/bg/3.jpg') }}" data-overlay-dark="8">
     <div class="section-content">
@@ -579,7 +622,7 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-6">
                     <h5 class="sub-title-side-line text-primary-color mrt-0 mrb-15">Get In Touch</h5>
-                    <h3 class="faq-title mrb-30">{{ @$setting_data->grievance_heading }}</h3>
+                    <h3 class="faq-title mrb-10">{{ @$setting_data->grievance_heading }}</h3>
                     <div class="mrb-40 text-justify">
                         {{ ucfirst(@$setting_data->grievance_description) }}
                     </div>
@@ -587,7 +630,7 @@
                 </div>
                 <div class="col-lg-6 col-xl-6">
                     <iframe src="{{@$setting_data->google_map ?? ''}}"
-                            width="600" height="850" style="border:0;"
+                            width="600" height="650" style="border:0;"
                             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>

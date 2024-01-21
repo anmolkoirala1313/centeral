@@ -257,7 +257,7 @@
 				loop: true,
 				margin: 30,
 				autoplay: true,
-				autoplayTimeout: 8000,
+				autoplayTimeout: 9000,
 				nav: true,
 				dots: true,
 				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],

@@ -43,8 +43,8 @@ class ManagingDirectorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -52,6 +52,8 @@ class ManagingDirectorController extends Controller
             'heading'             => $request->input('heading'),
             'designation'         => $request->input('designation'),
             'description'         => $request->input('description'),
+            'summary'             => $request->input('summary'),
+            'homepage_display'    => $request->input('homepage_display'),
             'link'                => $request->input('link'),
             'button'              => $request->input('button'),
             'created_by'          => Auth::user()->id,
@@ -119,7 +121,7 @@ class ManagingDirectorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -129,7 +131,9 @@ class ManagingDirectorController extends Controller
         $director->heading             =  $request->input('heading');
         $director->designation         =  $request->input('designation');
         $director->description         =  $request->input('description');
+        $director->summary             =  $request->input('summary');
         $director->link                =  $request->input('link');
+        $director->homepage_display    =  $request->input('homepage_display');
         $director->button              =  $request->input('button');
         $oldimage                      =  $director->image;
 
