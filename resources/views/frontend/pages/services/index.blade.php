@@ -31,6 +31,19 @@
 
     <div class="service-details-page pdt-110 pdb-90">
         <div class="container">
+            @if($heading)
+                <div class="row">
+                    <div class="col-md-12 col-xl-12 text-center">
+                        @if($heading->subtitle)
+                            <h5 class="mrb-15 text-primary-color sub-title-side-line">{{ $heading->subtitle ?? '' }}</h5>
+                        @endif
+                        <h2 class="mrb-30" style="width: 60%;margin: auto">{{ $heading->title ?? '' }}</h2>
+                    </div>
+                    <p class="mrb-30 mt-3 text-center">
+                        {!! $heading->description ?? ''  !!}
+                    </p>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xl-4 col-lg-5 sidebar-right">
                     @include('frontend.pages.services.sidebar')

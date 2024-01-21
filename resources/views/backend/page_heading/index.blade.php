@@ -42,13 +42,13 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         {!! Form::label('type', 'Page Type', ['class' => 'form-label required']) !!}
-                                        {!! Form::select('type', $type, null,['class'=>'form-select mb-3 select2','placeholder'=>'Select Page Type']) !!}
+                                        {!! Form::select('type', $type, null,['class'=>'form-select mb-3 select2','placeholder'=>'Select Page Type','required']) !!}
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         {!! Form::label('title', 'Title', ['class' => 'form-label required']) !!}
-                                        {!! Form::text('title', null,['class'=>'form-control','id'=>'name','placeholder'=>'Enter title']) !!}
+                                        {!! Form::text('title', null,['class'=>'form-control','id'=>'name','placeholder'=>'Enter title','required']) !!}
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -154,13 +154,13 @@
                             <div class="col-lg-12">
                                 <div class="mb-3">
                                     {!! Form::label('type', 'Page Type', ['class' => 'form-label required']) !!}
-                                    {!! Form::select('type', $type, null,['class'=>'form-select mb-3 select2','id'=>'type','placeholder'=>'Select Page Type']) !!}
+                                    {!! Form::select('type', $type, null,['class'=>'form-select mb-3 select2','id'=>'type','placeholder'=>'Select Page Type','required']) !!}
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     {!! Form::label('title', 'Title', ['class' => 'form-label required']) !!}
-                                    {!! Form::text('title', null,['class'=>'form-control','id'=>'title','placeholder'=>'Enter title']) !!}
+                                    {!! Form::text('title', null,['class'=>'form-control','id'=>'title','placeholder'=>'Enter title','required']) !!}
                                 </div>
                             </div>
                             <div class="col-lg-6">

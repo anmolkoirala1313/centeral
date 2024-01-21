@@ -10,6 +10,7 @@ use App\Models\Faq;
 use App\Models\Job;
 use App\Models\JobCategory;
 use App\Models\ManagingDirector;
+use App\Models\PageHeading;
 use App\Models\RecruitmentProcess;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
@@ -341,7 +342,9 @@ class FrontController extends Controller
 
         $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
 
-        return view('frontend.pages.services.index',compact('allservices','latestPosts','latestServices'));
+        $heading = PageHeading::where('type','service')->first();
+
+        return view('frontend.pages.services.index',compact('allservices','latestPosts','latestServices','heading'));
     }
 
 
@@ -454,8 +457,11 @@ class FrontController extends Controller
     }
 
     public function testimonial(){
+
         $testimonials = Testimonial::orderBy('created_at', 'DESC')->paginate(6);
-        return view('frontend.pages.testimonial',compact('testimonials'));
+        $heading       = PageHeading::where('type','testimonial')->first();
+
+        return view('frontend.pages.testimonial',compact('testimonials','heading'));
     }
 
     public function category(){
@@ -475,22 +481,26 @@ class FrontController extends Controller
 
     public function team(){
 
-        $teams = Team::orderBy('order', 'asc')->paginate(12);
+        $teams   = Team::orderBy('order', 'asc')->paginate(12);
+        $heading = PageHeading::where('type','team')->first();
 
-        return view('frontend.pages.team',compact('teams'));
+        return view('frontend.pages.team',compact('teams','heading'));
     }
 
     public function director(){
 
         $directors = ManagingDirector::orderBy('order', 'asc')->paginate(12);
+        $heading       = PageHeading::where('type','director')->first();
 
-        return view('frontend.pages.director',compact('directors'));
+        return view('frontend.pages.director',compact('directors','heading'));
     }
 
 
     public function album(){
-        $albums = Album::with('gallery')->has('gallery')->get();
-        return view('frontend.pages.album',compact('albums'));
+        $albums     = Album::with('gallery')->has('gallery')->get();
+        $heading    = PageHeading::where('type','album')->first();
+
+        return view('frontend.pages.album',compact('albums','heading'));
     }
 
     public function albumgallery($slug){
@@ -508,8 +518,9 @@ class FrontController extends Controller
 
     public function VideoGallery(){
         $videoGalleries    = VideoGallery::orderBy('created_at', 'desc')->paginate(9);
+        $heading    = PageHeading::where('type','video')->first();
 
-        return view('frontend.pages.video',compact('videoGalleries'));
+        return view('frontend.pages.video',compact('videoGalleries','heading'));
     }
 
 

@@ -24,7 +24,7 @@ class PageHeadingController extends Controller
     public function index()
     {
         $headings      = $this->model->orderBy('id','desc')->get();
-        $type        =  ['team'=>'Team Page','service'=>'Categories We Recruit Page','testimonial'=>'Testimonial Page','album'=>'Album','director'=>'Directors Page'];
+        $type        =  ['team'=>'Team Page','service'=>'Our Services','testimonial'=>'Testimonial Page','album'=>'Album Page','director'=>'Directors Page','video'=>'Video Gallery'];
 
         return view('backend.page_heading.index',compact('headings','type'));
     }

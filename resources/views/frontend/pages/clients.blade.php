@@ -15,7 +15,7 @@
             display: flex;
             max-width: 720px;
             width: 100%;
-            justify-content: space-between;
+            justify-content: center;
         }
         .items span{
             padding: 7px 25px;
@@ -26,6 +26,7 @@
             border-radius: 50px;
             border: 2px solid #007bff;
             transition: all 0.3s ease;
+            margin-right: 10px;
         }
         .items span.active,
         .items span:hover{
