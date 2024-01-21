@@ -5608,4 +5608,12 @@ select {
     transform: scale(1.02);
 }
 
+.team-block .team-bottom-part .summary {
+    display: none;  /* Hide the summary text by default */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+
+.team-block:hover .team-bottom-part .summary {
+    display: block;  /* Show the summary text when hovering over the team-block */
+    color: #fff;
+}
 /*# sourceMappingURL=style.css.map */

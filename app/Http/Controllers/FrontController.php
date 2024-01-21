@@ -482,9 +482,9 @@ class FrontController extends Controller
 
     public function director(){
 
-        $teams = ManagingDirector::orderBy('order', 'asc')->paginate(12);
+        $directors = ManagingDirector::orderBy('order', 'asc')->paginate(12);
 
-        return view('frontend.pages.director',compact('teams'));
+        return view('frontend.pages.director',compact('directors'));
     }
 
 
