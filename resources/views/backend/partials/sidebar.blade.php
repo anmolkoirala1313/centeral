@@ -155,6 +155,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{request()->route()->getName() == 'page_heading.index' ? 'active':''}}" href="{{route('page_heading.index')}}">
+                        <i class="ri-h-1"></i> <span data-key="t-widgets">Page Heading</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
                     <a class="nav-link menu-link @if(\Request::route()->getName() == 'sliders.index') active @endif" href="{{route('sliders.index')}}">
                         <i class="ri-slideshow-line"></i> <span data-key="t-widgets">Sliders</span>
                     </a>

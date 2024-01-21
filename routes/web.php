@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageHeadingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -178,6 +179,10 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/career/{career}/edit', 'App\Http\Controllers\CareerController@edit')->name('career.edit');
 
     //End of Career
+
+    //page heading
+    Route::resource('page-heading', PageHeadingController::class)->names('page_heading');
+
 
 
     //pages
