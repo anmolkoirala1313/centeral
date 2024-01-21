@@ -327,3 +327,15 @@ if (! function_exists('getYoutubeThumbnail')) {
         return "https://img.youtube.com/vi/".$youtubeVideoID."/hqdefault.jpg";
     }
 }
+
+if (!function_exists('imagePath')) {
+    /**
+     * @param $image
+     * @return string
+     */
+    function imagePath($image): string
+    {
+        return 'images'.DIRECTORY_SEPARATOR.$image;
+    }
+}
+

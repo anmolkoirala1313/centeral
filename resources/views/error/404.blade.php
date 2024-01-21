@@ -25,12 +25,13 @@
         <div class="section-content">
             <div class="container">
                 <div class="row">
-                    <h2 class="faq-title mrb-20">  Oops! Nothing Was Found</h2>
-                    <p class="mrb-20">Sorry, we could not find the page you where looking for. We suggest <br> that you
-                        return to homepage.</p>
-                    <div class="col-lg-8">
-                        <div class="form-group">
-                            <a href="/" class="cs-btn-one btn-md btn-round btn-primary-color element-shadow">HomePage</a>
+                    <div class="col-xl-12">
+                        <div class="error-inner text-center">
+                            <h1 class="error-title">4<span class="text-primary-color">0</span>4</h1>
+                            <h2 class="error-text">Sorry, something went wrong!</h2>
+                            <p>Sorry, we could not find the page you where looking for. We suggest <br> that you
+                                return to homepage.</p>
+                            <a class="cs-btn-one btn-md btn-primary-color" href="/">Return Home</a>
                         </div>
                     </div>
                 </div>

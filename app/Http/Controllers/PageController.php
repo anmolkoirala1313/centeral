@@ -141,9 +141,9 @@ class PageController extends Controller
                         $section_status = PageSection::create([
                             'section_name' => $section_name,
                             'section_slug' => $value,
-                            'page_id' => $page->id,
-                            'position' => $pos[$key],
-                            'created_by' => Auth::user()->id,
+                            'page_id'      => $page->id,
+                            'position'     => $pos[$key],
+                            'created_by'   => Auth::user()->id,
                         ]);
                     }
                 }
@@ -244,6 +244,8 @@ class PageController extends Controller
                 $ordered_sections[$section->section_slug] = 'calltoaction2.png';
             } elseif ($section->section_slug == 'call_to_action_1') {
                 $ordered_sections[$section->section_slug] = 'calltoaction.png';
+            }elseif ($section->section_slug == 'card_image') {
+                $ordered_sections[$section->section_slug] = 'card_image.png';
             } elseif ($section->section_slug == 'recruitment_process') {
                 $ordered_sections[$section->section_slug] = 'recruitment_process.png';
                 $recruitment_process_num = $section->list_number_1;

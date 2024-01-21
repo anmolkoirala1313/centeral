@@ -30,6 +30,8 @@
     <!-- custom Css-->
     <link href="{{asset('assets/backend/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
+    <link href="{{asset('assets/backend/custom_css/custom.css')}}" rel="stylesheet" type="text/css" />
+
     @yield('css')
     @stack('styles')
 
