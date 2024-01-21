@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="row">
                     @foreach($teams as $team)
-                        <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="col-md-6 col-lg-6 col-xl-3 d-flex align-items-stretch">
                             <div class="team-block mrb-30">
                                 <div class="team-upper-part">
                                     <img class="img-full lazy" data-src="{{ ($team->image!==null) ? asset('/images/teams/'.$team->image ):''}}" alt="">
