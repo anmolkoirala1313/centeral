@@ -2590,23 +2590,23 @@ select {
 }
 
 .title-under-line:before {
-  content: "";
-  background: linear-gradient(45deg, #0E90D5, #3032A2) !important;
-  position: absolute;
-  height: 10px;
-  width: 72px;
-  bottom: -35px;
-  left: 0;
+    content: "";
+    background: linear-gradient(45deg, #0E90D5, #3032A2) !important;
+    position: absolute;
+    height: 10px;
+    width: 72px;
+    bottom: -20px;
+    left: 0;
 }
 
 .title-under-line:after {
-  background: #ffffff;
-  position: absolute;
-  content: "";
-  height: 2px;
-  width: 30px;
-  bottom: -31px;
-  left: 0px;
+    background: #ffffff;
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 30px;
+    bottom: -16px;
+    left: 0px;
 }
 
 .line-both-side {
@@ -5586,4 +5586,9 @@ select {
     margin-right: 10px;
     border-radius: 50%;
 }
+
+.text-align-justify{
+    text-align: justify;
+}
+
 /*# sourceMappingURL=style.css.map */

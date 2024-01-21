@@ -35,7 +35,7 @@
 
 @if($homepage_info->mission)
     <!-- Features Section Start -->
-    <section class="serivce-section pdt-0 pdb-40 z-index-1 position-relative">
+    <section class="serivce-section pdt-60 pdb-40 z-index-1 position-relative">
     <div class="section-content">
         <div class="container">
             <div class="row">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-xl-6">
-                    <h2 class="title-under-line mrb-60">
+                    <h2 class="title-under-line mrb-40" style="font-size: 36px;">
                         {{$homepage_info->welcome_heading ?? ''}}
                     </h2>
                     <div class="mrb-20 text-justify">
@@ -317,10 +317,10 @@
 
             <div class="row">
                 @foreach(@$recruitments as $index=>$recruitment)
-                    <div class="col-md-4 col-xl-3 mt-4">
+                    <div class="col-md-4 col-xl-3 mt-4 d-flex align-items-stretch {{ $index > 3 ? 'mt-5':'' }}">
                         <div class="feature-box mrb-lg-60">
 
-                            <div class="feature-content" style="background: #F7F8FC;">
+                            <div class="feature-content h-100" style="background: #F7F8FC;">
                                 <div class="title">
                                     <h4>{{@$recruitment->title}}</h4>
                                 </div>
@@ -398,8 +398,8 @@
                 </div>
                 <div class="col-md-12 col-xl-6">
                     <h5 class="mrb-15 text-white sub-title-side-line">Why Choose Us?</h5>
-                    <h2 class="text-white mrb-10">We Help You to Grow <br><span class="f-weight-400">Your Business</span> Quickly</h2>
-                    <p class="text-white mrb-10"> {{ucwords(@$homepage_info->why_description)}}</p>
+                    <h2 class="text-white mrb-10">We Help You to Grow Your <br>Business Quickly</h2>
+                    <p class="text-white mrb-10 text-align-justify"> {{ucwords(@$homepage_info->why_description)}}</p>
                     <div class="row">
                         <div class="col-md-6 col-md-4">
                             <div class="funfact mrb-lg-30 mrb-20">
@@ -482,7 +482,7 @@
 @endif
 
 @if(count($latestPosts) > 0)
-    <section class="bg-silver-light pdt-105 pdb-80" data-background="{{asset('assets/frontend/images/bg/abs-bg4.png')}}">
+    <section class="bg-silver-light pdt-105 pdb-60" data-background="{{asset('assets/frontend/images/bg/abs-bg4.png')}}">
         <div class="section-title mrb-30 mrb-md-60">
             <div class="container">
                 <div class="row">
@@ -573,7 +573,7 @@
 @endif
 
 @if(@$setting_data->grievance_heading)
-    <section class="contact-section pdt-110 pdb-95 pdb-lg-90" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}">
+    <section class="contact-section pdt-10 pdb-95 pdb-lg-90" data-background="{{asset('assets/frontend/images/bg/abs-bg1.png')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-xl-6">

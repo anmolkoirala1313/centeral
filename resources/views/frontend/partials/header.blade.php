@@ -7,17 +7,17 @@
     <meta name="description" content="{{ucwords(@$setting_data->meta_description ?? 'Central')}} "/>
     <meta name="keywords" content="{{@$setting_data->meta_tags ?? 'Central '}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-{{--    <link rel="canonical" href="https://careerlinkrecruitment.com" />--}}
+    <link rel="canonical" href="https://thecenteroverseas.com.np/" />
 
     @if (\Request::is('/'))
         <title>{{ucwords(@$setting_data->website_name ?? 'Central')}}</title>
     @else
-        <title>@yield('title') | {{ucwords(@$setting_data->website_name ?? 'CareCentralerlink')}} </title>
+        <title>@yield('title') | {{ucwords(@$setting_data->website_name ?? 'The Central Overseas Pvt Ltd')}} </title>
     @endif
 
     <meta property="og:title" content=" {{ucwords(@$setting_data->meta_title ?? 'Central')}}" />
     <meta property="og:type" content="Consultancy" />
-{{--    <meta property="og:url" content="https://careerlinkrecruitment.com" />--}}
+    <meta property="og:url" content="https://thecenteroverseas.com.np/" />
     <meta property="og:site_name" content="Careerlink" />
     <meta property="og:description" content=" {{ucwords(@$setting_data->meta_description ?? 'Central')}}" />
 
@@ -135,7 +135,7 @@
                             </div>
                             <div class="side-panel-logo mrb-30">
                                 <a href="/">
-                                    <img src="{{$setting_data->logo_white ? asset('/images/settings/'.@$setting_data->logo_white) : asset('/images/settings/'.@$setting_data->logo)}}" alt="" />
+                                    <img src="{{$setting_data->logo ? asset('/images/settings/'.@$setting_data->logo) : asset('/images/settings/'.@$setting_data->logo_white)}}" alt="" />
                                 </a>
                             </div>
                             <div class="side-info mrb-30">

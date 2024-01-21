@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    {{--    <link rel="canonical" href="https://careerlinkrecruitment.com" />--}}
+    <link rel="canonical" href="https://thecenteroverseas.com.np/" />
     @yield('seo')
 
 
@@ -122,7 +122,7 @@
                             </div>
                             <div class="side-panel-logo mrb-30">
                                 <a href="/">
-                                    <img src="{{$setting_data->logo_white ? asset('/images/settings/'.@$setting_data->logo_white) : asset('/images/settings/'.@$setting_data->logo)}}" alt="" />
+                                    <img src="{{$setting_data->logo ? asset('/images/settings/'.@$setting_data->logo) : asset('/images/settings/'.@$setting_data->logo_white)}}" alt="" />
                                 </a>
                             </div>
                             <div class="side-info mrb-30">
