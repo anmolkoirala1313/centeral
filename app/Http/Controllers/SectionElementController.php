@@ -920,7 +920,7 @@ class SectionElementController extends Controller
             $description =  array_key_exists($index, $request->input('description')) ? $request->input('description')[$index] : null;
 
             if ($request->file('image_input') && array_key_exists($index,$request->file('image_input'))){
-                $image_name  = $this->updateImage( $request->file('image_input')[$index],null,'800','600');
+                $image_name  = $this->updateImage( $request->file('image_input')[$index]);
                 $request->request->add(['image_'.$index => $image_name]);
                 if ($section && $section->list_image){
                     $this->deleteImage($section->list_image);
