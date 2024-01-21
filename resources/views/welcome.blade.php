@@ -418,6 +418,9 @@
                                             <h4 class="team-title mrb-5">{{ $row->heading ?? '' }}</h4>
                                             <h6 class="designation text-gray f-weight-400 mb-2">{{ $row->designation ?? '' }}</h6>
                                             <p class="text-align-justify">{{ $row->description ?? '' }}</p>
+                                            @if($row->link)
+                                                <a href="{{ $row->link ?? '' }}" class="cs-btn-one btn-gradient-color btn-sm">{{ $row->button ?? 'Read More' }}</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

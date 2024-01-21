@@ -31,6 +31,9 @@
                     $("#editdirector").modal("toggle");
                     $('#heading').attr('value',dataResult.heading);
                     $('#designation').attr('value',dataResult.designation);
+                    $('#button').attr('value',dataResult.button);
+                    $('#link').attr('value',dataResult.link);
+                    $('#designation').attr('value',dataResult.designation);
                     $('#ckeditor-classic-director').text(dataResult.description);
                     if(dataResult.link !== null){
                         $('#link').attr('value',dataResult.link);

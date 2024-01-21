@@ -7,7 +7,6 @@
 @endsection
 @section('content')
 
-
     <div class="page-content">
         <div class="container-fluid" style="position:relative;">
 
@@ -55,21 +54,38 @@
 
                             <div class="form-group mb-3">
                                 <label>Summary </label>
-                                <textarea class="form-control" rows="4" maxlength="200" name="summary" ></textarea>
+                                <textarea class="form-control" rows="4" maxlength="500" name="summary" ></textarea>
                                 <div class="invalid-feedback">
                                     Please write the summary
                                 </div>
                             </div>
 
-                            <div class="form-group mb-3 director-message d-none">
-                                <label>Description </label>
-                                <textarea class="form-control" rows="16" maxlength="1150" name="description" id="ckeditor-classic-director-one"></textarea>
-                                <span class="ctm-text-sm">*Director message when used for homepage</span>
+                            <div class="director-message d-none">
+                                <div class="form-group mb-3 ">
+                                    <label>Description </label>
+                                    <textarea class="form-control" rows="16" maxlength="1150" name="description" id="ckeditor-classic-director-one"></textarea>
+                                    <span class="ctm-text-sm">*Director message when used for homepage</span>
 
-                                <div class="invalid-feedback">
-                                    Please write the description
+                                    <div class="invalid-feedback">
+                                        Please write the description
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Button </label>
+                                    <input type="text" class="form-control" name="button" required>
+                                    <div class="invalid-feedback">
+                                        Please enter the button.
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Link </label>
+                                    <input type="text" class="form-control" name="link" required>
+                                    <div class="invalid-feedback">
+                                        Please enter the link.
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="text-center mb-3">
                                 <button type="submit" class="btn btn-success w-sm mt-4">Add details</button>
                             </div>
@@ -228,21 +244,34 @@
 
                                         <div class="form-group mb-3">
                                             <label>Summary </label>
-                                            <textarea class="form-control" rows="4" maxlength="200" name="summary" ></textarea>
+                                            <textarea class="form-control" rows="4" maxlength="500" name="summary" ></textarea>
                                             <div class="invalid-feedback">
                                                 Please write the summary
                                             </div>
                                         </div>
-
-
-                                        <div class="form-group mb-3 director-message2">
-                                            <label>Description <span class="text-muted text-danger">*</span></label>
-                                            <textarea class="form-control" rows="16" maxlength="1150" name="description" id="ckeditor-classic-director" required></textarea>
-                                            <div class="invalid-feedback">
-                                                Please write the short description
+                                        <div class="director-message2">
+                                            <div class="form-group mb-3">
+                                                <label>Description <span class="text-muted text-danger">*</span></label>
+                                                <textarea class="form-control" rows="16" maxlength="1150" name="description" id="ckeditor-classic-director" required></textarea>
+                                                <div class="invalid-feedback">
+                                                    Please write the short description
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label>Button </label>
+                                                <input type="text" class="form-control" name="button" id="button">
+                                                <div class="invalid-feedback">
+                                                    Please enter the button.
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label>Link </label>
+                                                <input type="text" class="form-control" name="link" id="link">
+                                                <div class="invalid-feedback">
+                                                    Please enter the link.
+                                                </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
