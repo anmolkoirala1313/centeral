@@ -112,11 +112,10 @@ class PageHeadingController extends Controller
      */
     public function destroy($id)
     {
-        $deletealbum      = Album::find($id);
-        $rid             = $deletealbum->id;
+        $delete      = $this->model->find($id);
+        $rid         = $delete->id;
 
-
-        $delete = $deletealbum->delete();
+        $delete = $delete->delete();
         if($delete){
             $status ='success';
             return response()->json(['status'=>$status,'message'=>'Page Heading been removed successfully!']);

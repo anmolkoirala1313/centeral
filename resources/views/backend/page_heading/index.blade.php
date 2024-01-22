@@ -321,7 +321,7 @@
                         t.dismiss === Swal.DismissReason.cancel &&
                         Swal.fire({
                             title: "Cancelled",
-                            text: "Client was not removed.",
+                            text: "Page Heading was not removed.",
                             icon: "error",
                             confirmButtonClass: "btn btn-primary mt-2",
                             buttonsStyling: !1
