@@ -72,14 +72,14 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Button </label>
-                                    <input type="text" class="form-control" name="button" required>
+                                    <input type="text" class="form-control" name="button" >
                                     <div class="invalid-feedback">
                                         Please enter the button.
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Link </label>
-                                    <input type="text" class="form-control" name="link" required>
+                                    <input type="text" class="form-control" name="link" >
                                     <div class="invalid-feedback">
                                         Please enter the link.
                                     </div>
@@ -244,7 +244,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Summary </label>
-                                            <textarea class="form-control" rows="4" maxlength="500" name="summary" ></textarea>
+                                            <textarea class="form-control" rows="4" maxlength="500" name="summary" id="summary"></textarea>
                                             <div class="invalid-feedback">
                                                 Please write the summary
                                             </div>

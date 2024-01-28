@@ -19,7 +19,7 @@
                             @foreach(@$footer_nav_data1 as $nav)
                                 @if(empty(@$nav->children[0]))
                                     <li>
-                                        <a href="{{get_menu_url(@$nav->type, @$nav)}}" target="{{@$nav->target ? '_blank':''}}">
+                                        <a href="{{@$nav->slug ?? ''}}" target="{{@$nav->target ? '_blank':''}}">
                                             {{ @$nav->name ?? @$nav->title ?? ''}}
                                         </a>
                                     </li>
@@ -37,7 +37,7 @@
                             @foreach(@$footer_nav_data1 as $nav)
                                 @if(empty(@$nav->children[0]))
                                     <li>
-                                        <a href="{{get_menu_url(@$nav->type, @$nav)}}" target="{{@$nav->target ? '_blank':''}}">
+                                        <a href="{{@$nav->slug ?? ''}}" target="{{@$nav->target ? '_blank':''}}">
                                             {{ @$nav->name ?? @$nav->title ?? ''}}
                                         </a>
                                     </li>

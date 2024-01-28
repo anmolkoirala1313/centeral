@@ -52,7 +52,7 @@ Route::get('our-service/{slug}','App\Http\Controllers\FrontController@serviceSin
 Route::get('/our-service','App\Http\Controllers\FrontController@service')->name('service.frontend');
 Route::get('/blog/categories/{slug}', 'App\Http\Controllers\FrontController@blogCategories')->name('blog.category');
 Route::get('/blog', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
-Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
+//Route::get('/faq', 'App\Http\Controllers\FrontController@faq')->name('faq.frontend');
 Route::get('/album', 'App\Http\Controllers\FrontController@album')->name('album');
 Route::get('/album/{album}/', 'App\Http\Controllers\FrontController@albumgallery')->name('album.gallery');
 
